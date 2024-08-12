@@ -1,0 +1,1 @@
+"!document.querySelector(\"div#modal-detail\") && !document.querySelector('[role=\"dialog\"][data-state=\"open\"]') &&(window.location.href.indexOf(\"type=video\")>-1 || window.location.href.indexOf(\"\/videos\/\")>-1 )"

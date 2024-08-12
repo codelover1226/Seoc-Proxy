@@ -1,0 +1,23 @@
+h6(class="mt-4 font-weight-bold") Answerthepublic params
+hr(class="mt-0 mb-2")
+div(class="row mb")
+    div(class="col-sm")
+        label Domain
+        input(type="text" class="form-control" id="answerthepublic-domain" name="answerthepublic-domain"
+            placeholder="Domain used to connect to the Answerthepublic service"
+            value=answerthepublicDomain)
+        if errors && errors['answerthepublic-domain']
+            span(class="text-danger") #{errors['answerthepublic-domain']}
+div(class="row mt-2")
+    div(class="col-sm")
+        label Username:
+        input(type="text" class="form-control" id="answerthepublic-username" name="answerthepublic-username"
+            value=answerthepublicUsername)
+        if errors && errors['answerthepublic-username']
+            span(class="text-danger") #{errors['answerthepublic-username']}
+    div(class="col-sm")
+        label Password:
+        input(type="text" class="form-control" id="answerthepublic-pwrd" name="answerthepublic-pwrd"
+            value=answerthepublicPassword)
+        if errors && errors['answerthepublic-pwrd']
+            span(class="text-danger") #{errors['answerthepublic-pwrd']}

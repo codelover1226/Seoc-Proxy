@@ -1,0 +1,22 @@
+h6(class="mt-4 font-weight-bold") Seoptimer params
+    hr(class="mt-0 mb-2")
+div(class="row mb")
+    div(class="col-sm")
+        label Domain:
+        input(type="text" class="form-control" id="seoptimer-domain" name="seoptimer-domain"
+            placeholder="Domain used to connect to the seoptimer service" value=seoptimerDomain)
+        if errors && errors['seoptimer-domain']
+            span(class="text-danger") #{errors['seoptimer-domain']}
+div(class="row mt-2")
+    div(class="col-sm")
+        label Username:
+        input(type="text" class="form-control" id="seoptimer-username" name="seoptimer-username"
+            value=seoptimerUsername)
+        if errors && errors['seoptimer-username']
+            span(class="text-danger") #{errors['seoptimer-username']}
+    div(class="col-sm")
+        label Password:
+        input(type="text" class="form-control" id="seoptimer-pwrd" name="seoptimer-pwrd"
+            value=seoptimerPassword)
+        if errors && errors['seoptimer-pwrd']
+            span(class="text-danger") #{errors['seoptimer-pwrd']}

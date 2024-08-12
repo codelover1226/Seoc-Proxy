@@ -1,0 +1,22 @@
+h6(class="mt-4 font-weight-bold") Serpstat params
+hr(class="mt-0 mb-2")
+div(class="row mb")
+    div(class="col-sm")
+        label Domain
+        input(type="text" class="form-control" id="serpstat-domain" name="serpstat-domain"
+            placeholder="Domain used to connect to the serpstat service" value=serpstatDomain)
+        if errors && errors['serpstat-domain']
+            span(class="text-danger") #{errors['serpstat-domain']}
+div(class="row mt-2")
+    div(class="col-sm")
+        label Username:
+        input(type="text" class="form-control" id="serpstat-username" name="serpstat-username"
+            value=serpstatUsername)
+        if errors && errors['serpstat-username']
+            span(class="text-danger") #{errors['serpstat-username']}
+    div(class="col-sm")
+        label Password:
+        input(type="text" class="form-control" id="serpstat-pwrd" name="serpstat-pwrd"
+            value=serpstatPassword)
+        if errors && errors['serpstat-pwrd']
+            span(class="text-danger") #{errors['serpstat-pwrd']}

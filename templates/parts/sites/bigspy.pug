@@ -1,0 +1,24 @@
+h6(class="mt-4 font-weight-bold")
+    span Bigspy params
+hr(class="mt-0 mb-2")
+div(class="row mb")
+    div(class="col-sm")
+        label Domain
+        input(type="text" class="form-control" id="bigspy-domain" name="bigspy-domain"
+            placeholder="Domain used to connect to the Bigspy service"
+            value=bigspyDomain)
+        if errors && errors['bigspy-domain']
+            span(class="text-danger") #{errors['bigspy-domain']}
+div(class="row mt-2")
+    div(class="col-sm")
+        label Username:
+        input(type="text" class="form-control" id="bigspy-username" name="bigspy-username"
+            value=bigspyUsername)
+        if errors && errors['bigspy-username']
+            span(class="text-danger") #{errors['bigspy-username']}
+    div(class="col-sm")
+        label Password:
+        input(type="text" class="form-control" id="bigspy-pwrd" name="bigspy-pwrd"
+            value=bigspyPassword)
+        if errors && errors['bigspy-pwrd']
+            span(class="text-danger") #{errors['bigspy-pwrd']}

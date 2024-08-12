@@ -1,0 +1,22 @@
+h6(class="mt-4 font-weight-bold") SeoMonitor params
+hr(class="mt-0 mb-2")
+div(class="row mb")
+    div(class="col-sm")
+        label Domain
+        input(type="text" class="form-control" id="seomonitor-domain" name="seomonitor-domain"
+            placeholder="Domain used to connect to the seomonitor service" value=seomonitorDomain)
+        if errors && errors['seomonitor-domain']
+            span(class="text-danger") #{errors['seomonitor-domain']}
+div(class="row mt-2")
+    div(class="col-sm")
+        label Username:
+        input(type="text" class="form-control" id="seomonitor-username" name="seomonitor-username"
+            value=seomonitorUsername)
+        if errors && errors['seomonitor-username']
+            span(class="text-danger") #{errors['seomonitor-username']}
+    div(class="col-sm")
+        label Password:
+        input(type="text" class="form-control" id="seomonitor-pwrd" name="seomonitor-pwrd"
+            value=seomonitorPassword)
+        if errors && errors['seomonitor-pwrd']
+            span(class="text-danger") #{errors['seomonitor-pwrd']}

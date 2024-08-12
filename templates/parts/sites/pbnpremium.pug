@@ -1,0 +1,30 @@
+h6(class="mt-4 font-weight-bold") Pbnpremium params
+hr(class="mt-0 mb-2")
+div(class="row mb")
+    div(class="col-sm")
+        label Domain
+        input(type="text" class="form-control" id="pbnpremium-domain" name="pbnpremium-domain"
+            placeholder="Domain used to connect to the Pbnpremium service"
+            value=pbnpremiumDomain)
+        if errors && errors['pbnpremium-domain']
+            span(class="text-danger") #{errors['pbnpremium-domain']}
+div(class="row mt-2")
+    div(class="col-sm")
+        label Username:
+        input(type="text" class="form-control" id="pbnpremium-username" name="pbnpremium-username"
+            value=pbnpremiumUsername)
+        if errors && errors['pbnpremium-username']
+            span(class="text-danger") #{errors['pbnpremium-username']}
+    div(class="col-sm")
+        label Password:
+        input(type="text" class="form-control" id="pbnpremium-pwrd" name="pbnpremium-pwrd"
+            value=pbnpremiumPassword)
+        if errors && errors['pbnpremium-pwrd']
+            span(class="text-danger") #{errors['pbnpremium-pwrd']}
+div(class="row mt-3")
+    div(class="col-4")
+        label Views limit / day:
+        input(type="text" class="form-control" id="pbnpremium-view-limit" name="pbnpremium-view-limit"
+            value=pbnpremiumViewLimit)
+        if errors && errors['pbnpremium-view-limit']
+            span(class="text-danger") #{errors['pbnpremium-view-limit']}

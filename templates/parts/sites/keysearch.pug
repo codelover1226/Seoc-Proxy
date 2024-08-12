@@ -1,0 +1,24 @@
+h6(class="mt-4 font-weight-bold")
+    span Keysearch params
+hr(class="mt-0 mb-2")
+div(class="row mb")
+    div(class="col-sm")
+        label Domain
+        input(type="text" class="form-control" id="keysearch-domain" name="keysearch-domain"
+            placeholder="Domain used to connect to the Keysearch service"
+            value=keysearchDomain)
+        if errors && errors['keysearch-domain']
+            span(class="text-danger") #{errors['keysearch-domain']}
+div(class="row mt-2")
+    div(class="col-sm")
+        label Username:
+        input(type="text" class="form-control" id="keysearch-username" name="keysearch-username"
+            value=keysearchUsername)
+        if errors && errors['keysearch-username']
+            span(class="text-danger") #{errors['keysearch-username']}
+    div(class="col-sm")
+        label Password:
+        input(type="text" class="form-control" id="keysearch-pwrd" name="keysearch-pwrd"
+            value=keysearchPassword)
+        if errors && errors['keysearch-pwrd']
+            span(class="text-danger") #{errors['keysearch-pwrd']}

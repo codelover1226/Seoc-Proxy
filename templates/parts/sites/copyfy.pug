@@ -1,0 +1,22 @@
+h6(class="mt-4 font-weight-bold") Copyfy params
+   hr(class="mt-0 mb-2")
+div(class="row mb")
+    div(class="col-sm")
+        label Domain:
+        input(type="text" class="form-control" id="copyfy-domain" name="copyfy-domain"
+            placeholder="Domain used to connect to the copyfy service" value=copyfyDomain)
+        if errors && errors['copyfy-domain']
+            span(class="text-danger") #{errors['copyfy-domain']}
+div(class="row mt-2")
+    div(class="col-sm")
+        label Username:
+        input(type="text" class="form-control" id="copyfy-username" name="copyfy-username"
+            value=copyfyUsername)
+        if errors && errors['copyfy-username']
+            span(class="text-danger") #{errors['copyfy-username']}
+    div(class="col-sm")
+        label Password:
+        input(type="text" class="form-control" id="copyfy-pwrd" name="copyfy-pwrd"
+            value=copyfyPassword)
+        if errors && errors['copyfy-pwrd']
+            span(class="text-danger") #{errors['copyfy-pwrd']}

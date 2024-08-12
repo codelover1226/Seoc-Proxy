@@ -1,0 +1,24 @@
+h6(class="mt-4 font-weight-bold")
+    span Paraphraser params
+hr(class="mt-0 mb-2")
+div(class="row mb")
+    div(class="col-sm")
+        label Domain
+        input(type="text" class="form-control" id="paraphraser-domain" name="paraphraser-domain"
+            placeholder="Domain used to connect to the Paraphraser service"
+            value=paraphraserDomain)
+        if errors && errors['paraphraser-domain']
+            span(class="text-danger") #{errors['paraphraser-domain']}
+div(class="row mt-2")
+    div(class="col-sm")
+        label Username:
+        input(type="text" class="form-control" id="paraphraser-username" name="paraphraser-username"
+            value=paraphraserUsername)
+        if errors && errors['paraphraser-username']
+            span(class="text-danger") #{errors['paraphraser-username']}
+    div(class="col-sm")
+        label Password:
+        input(type="text" class="form-control" id="paraphraser-pwrd" name="paraphraser-pwrd"
+            value=paraphraserPassword)
+        if errors && errors['paraphraser-pwrd']
+            span(class="text-danger") #{errors['paraphraser-pwrd']}

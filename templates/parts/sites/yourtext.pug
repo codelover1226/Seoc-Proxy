@@ -1,0 +1,23 @@
+h6(class="mt-4 font-weight-bold") Yourtext params
+hr(class="mt-0 mb-2")
+div(class="row mb")
+    div(class="col-sm")
+        label Domain
+        input(type="text" class="form-control" id="yourtext-domain" name="yourtext-domain"
+            placeholder="Domain used to connect to the Yourtext service"
+            value=yourtextDomain)
+        if errors && errors['yourtext-domain']
+            span(class="text-danger") #{errors['yourtext-domain']}
+div(class="row mt-2")
+    div(class="col-sm")
+        label Username:
+        input(type="text" class="form-control" id="yourtext-username" name="yourtext-username"
+            value=yourtextUsername)
+        if errors && errors['yourtext-username']
+            span(class="text-danger") #{errors['yourtext-username']}
+    div(class="col-sm")
+        label Password:
+        input(type="text" class="form-control" id="yourtext-pwrd" name="yourtext-pwrd"
+            value=yourtextPassword)
+        if errors && errors['yourtext-pwrd']
+            span(class="text-danger") #{errors['yourtext-pwrd']}

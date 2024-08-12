@@ -1,0 +1,13 @@
+h6(class="mt-4 font-weight-bold") 2captcha params
+hr(class="mt-0 mb-2")
+div(class="row mb")
+    div(class="col-sm")
+        label email:
+        input(type="text" class="form-control" id="2capctha-email" name="2capctha-email" value=twoCaptchaEmail)
+        if errors && errors['2capctha-email']
+            span(class="text-danger") #{errors['2capctha-email']}
+    div(class="col-sm")
+        label API key:
+        input(type="text" class="form-control" id="2capctha-api-key" name="2capctha-api-key" value=twoCaptchaApiKey)
+        if errors && errors['2capctha-api-key']
+            span(class="text-danger") #{errors['2capctha-api-key']}

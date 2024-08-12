@@ -1,0 +1,22 @@
+h6(class="mt-4 font-weight-bold") Spyfu params
+hr(class="mt-0 mb-2")
+div(class="row mb")
+    div(class="col-sm")
+        label Domain
+        input(type="text" class="form-control" id="spyfu-domain" name="spyfu-domain"
+            placeholder="Domain used to connect to the spyfu service" value=spyfuDomain)
+        if errors && errors['spyfu-domain']
+            span(class="text-danger") #{errors['spyfu-domain']}
+div(class="row mt-2")
+    div(class="col-sm")
+        label Username:
+        input(type="text" class="form-control" id="spyfu-username" name="spyfu-username"
+            value=spyfuUsername)
+        if errors && errors['spyfu-username']
+            span(class="text-danger") #{errors['spyfu-username']}
+    div(class="col-sm")
+        label Password:
+        input(type="text" class="form-control" id="spyfu-pwrd" name="spyfu-pwrd"
+            value=spyfuPassword)
+        if errors && errors['spyfu-pwrd']
+            span(class="text-danger") #{errors['spyfu-pwrd']}

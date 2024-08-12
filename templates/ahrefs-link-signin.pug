@@ -1,0 +1,35 @@
+extends layout
+block content
+    div(class="row")
+        div(class="container")
+            h3(class="ml-auto mr-auto") Ahrefs sign-in
+            div(class="mt-5 ml-auto mr-auto alert alert-info") This page enable you to sign in to ahrefs by using a verified link received in an email after a sign in attempt.
+            div
+                label Verified sign in link
+                input(type="text" class="form-control" id="signin-link" data-ahrefs-domain=ahrefsDomain
+                    placeholder="Enter the verified link here")
+                div(class="error text-danger" id="error-msg")
+            div(class="mt-3")
+                button(type="submit" class="btn btn-primary" id="signin-btn") Sign in
+            script.
+                $(document).ready(function () {
+                    $('#signin-btn').click(function () {
+                        const signinLinkInput = $('#signin-link');
+                        const errorMsgElt = $('#error-msg');
+                        try{
+                            errorMsgElt.text('');
+                            const signinUrlObjt = new URL(signinLinkInput.val());
+                            const ahrefsDomain = signinLinkInput.attr('data-ahrefs-domain');
+                            let finalSignUrl = 'https://' + ahrefsDomain;
+                            finalSignUrl += signinUrlObjt.pathname;
+                            finalSignUrl += signinUrlObjt.search;
+                            finalSignUrl += (signinUrlObjt.search.includes('?')) ? '&' : '?';
+                            finalSignUrl += 'original-host=' + signinUrlObjt.hostname;
+                            console.log('Attempting to sign in with --> ' + finalSignUrl);
+                            location.assign(finalSignUrl);
+                        } catch (e) {
+                            console.error(e.message);
+                            errorMsgElt.text('Invalid verified link');
+                        }
+                    });
+                });

@@ -1,0 +1,23 @@
+h6(class="mt-4 font-weight-bold") Placeit params
+hr(class="mt-0 mb-2")
+div(class="row mb")
+    div(class="col-sm")
+        label Domain
+        input(type="text" class="form-control" id="placeit-domain" name="placeit-domain"
+            placeholder="Domain used to connect to the Placeit service"
+            value=placeitDomain)
+        if errors && errors['placeit-domain']
+            span(class="text-danger") #{errors['placeit-domain']}
+div(class="row mt-2")
+    div(class="col-sm")
+        label Username:
+        input(type="text" class="form-control" id="placeit-username" name="placeit-username"
+            value=placeitUsername)
+        if errors && errors['placeit-username']
+            span(class="text-danger") #{errors['placeit-username']}
+    div(class="col-sm")
+        label Password:
+        input(type="text" class="form-control" id="placeit-pwrd" name="placeit-pwrd"
+            value=placeitPassword)
+        if errors && errors['placeit-pwrd']
+            span(class="text-danger") #{errors['placeit-pwrd']}

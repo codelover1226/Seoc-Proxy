@@ -1,0 +1,31 @@
+h6(class="mt-4 font-weight-bold")
+    span Freepik params
+hr(class="mt-0 mb-2")
+div(class="row mb")
+    div(class="col-sm")
+        label Domain
+        input(type="text" class="form-control" id="freepik-domain" name="freepik-domain"
+            placeholder="Domain used to connect to the Freepik service"
+            value=freepikDomain)
+        if errors && errors['freepik-domain']
+            span(class="text-danger") #{errors['freepik-domain']}
+div(class="row mt-2")
+    div(class="col-sm")
+        label Username:
+        input(type="text" class="form-control" id="freepik-username" name="freepik-username"
+            value=freepikUsername)
+        if errors && errors['freepik-username']
+            span(class="text-danger") #{errors['freepik-username']}
+    div(class="col-sm")
+        label Password:
+        input(type="text" class="form-control" id="freepik-pwrd" name="freepik-pwrd"
+            value=freepikPassword)
+        if errors && errors['freepik-pwrd']
+            span(class="text-danger") #{errors['freepik-pwrd']}
+div(class="row mt-3")
+    div(class="col-sm")
+        label download limit / day:
+        input(type="text" class="form-control" id="freepik-download-limit" name="freepik-download-limit"
+            value=freepikDownloadLimit)
+        if errors && errors['freepik-download-limit']
+            span(class="text-danger") #{errors['freepik-download-limit']}

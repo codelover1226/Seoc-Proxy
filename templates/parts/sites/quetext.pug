@@ -1,0 +1,24 @@
+h6(class="mt-4 font-weight-bold")
+    span Quetext params
+hr(class="mt-0 mb-2")
+div(class="row mb")
+    div(class="col-sm")
+        label Domain
+        input(type="text" class="form-control" id="quetext-domain" name="quetext-domain"
+            placeholder="Domain used to connect to the Quetext service"
+            value=quetextDomain)
+        if errors && errors['quetext-domain']
+            span(class="text-danger") #{errors['quetext-domain']}
+div(class="row mt-2")
+    div(class="col-sm")
+        label Username:
+        input(type="text" class="form-control" id="quetext-username" name="quetext-username"
+            value=quetextUsername)
+        if errors && errors['quetext-username']
+            span(class="text-danger") #{errors['quetext-username']}
+    div(class="col-sm")
+        label Password:
+        input(type="text" class="form-control" id="quetext-pwrd" name="quetext-pwrd"
+            value=quetextPassword)
+        if errors && errors['quetext-pwrd']
+            span(class="text-danger") #{errors['quetext-pwrd']}

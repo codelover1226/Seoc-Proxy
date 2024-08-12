@@ -1,0 +1,33 @@
+if isFirstSetup
+    h6(class="mt-4 font-weight-bold") WordPress site
+    div(class="row mb")
+        div(class="col-sm")
+            table(class="table table-sm table-bordered")
+                tr
+                    th #
+                    th(style="width: 18%;") Site URL
+                    th REST Me API Path
+                    th Membership Pro API Path
+                    th Membership Pro API Key
+                tr
+                    td 1
+                    td
+                        input(type="text" class="form-control required-control" id="root-url" name="root-url"
+                            placeholder="Ex: https://example.com or https://localhost" value=rootUrl)
+                        if errors && errors['root-url']
+                            span(class="text-danger") #{errors['root-url']}
+                    td
+                        input(type="text" class="form-control required-control" id="rest-api-path" name="rest-api-path"
+                            placeholder="/wp-json/wp/v2/users/me" value=restApiPath)
+                        if errors && errors['rest-api-path']
+                            span(class="text-danger") #{errors['rest-api-path']}
+                    td
+                        input(type="text" class="form-control required-control" id="mem-pro-api-path" name="mem-pro-api-path"
+                            placeholder="/wp-content/plugins/indeed-membership-pro/apigate.php" value=membershipProApiPath)
+                        if errors && errors['mem-pro-api-path']
+                            span(class="text-danger") #{errors['mem-pro-api-path']}
+                    td
+                        input(type="text" class="form-control required-control" id="mem-pro-api-key" name="mem-pro-api-key"
+                            value=membershipProApiKey)
+                        if errors && errors['mem-pro-api-key']
+                            span(class="text-danger") #{errors['mem-pro-api-key']}

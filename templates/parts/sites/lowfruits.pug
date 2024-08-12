@@ -1,0 +1,30 @@
+h6(class="mt-4 font-weight-bold") Lowfruits params
+    hr(class="mt-0 mb-2")
+    div(class="row mb")
+        div(class="col-sm")
+            label Domain
+            input(type="text" class="form-control" id="lowfruits-domain" name="lowfruits-domain"
+                placeholder="Domain used to connect to the Lowfruits service"
+                value=lowfruitsDomain)
+            if errors && errors['lowfruits-domain']
+                span(class="text-danger") #{errors['lowfruits-domain']}
+    div(class="row mt-2")
+        div(class="col-sm")
+            label Username:
+            input(type="text" class="form-control" id="lowfruits-username" name="lowfruits-username"
+                value=lowfruitsUsername)
+            if errors && errors['lowfruits-username']
+                span(class="text-danger") #{errors['lowfruits-username']}
+        div(class="col-sm")
+            label Password:
+            input(type="text" class="form-control" id="lowfruits-pwrd" name="lowfruits-pwrd"
+                value=lowfruitsPassword)
+            if errors && errors['lowfruits-pwrd']
+                span(class="text-danger") #{errors['lowfruits-pwrd']}
+div(class="row mt-2")
+    div(class="col-4")
+        label Credit limit / day:
+        input(type="text" class="form-control" id="lowfruits-credit-limit" name="lowfruits-credit-limit"
+            value=lowfruitsCreditLimit)
+        if errors && errors['lowfruits-credit-limit']
+            span(class="text-danger") #{errors['lowfruits-credit-limit']}

@@ -1,0 +1,181 @@
+extends layout
+
+block content
+    h1(class="mb-4") #{title}
+    if siteNotFound
+        div(class="alert alert-danger mb-3") Oops :-(!! We're sorry but no Wordpress website matching your search was found.
+    else
+        div(class="container")
+            if typeof speciaSuccesslMsg === 'string' && speciaSuccesslMsg.length > 0
+                div(class="alert alert-success mb-3") #{speciaSuccesslMsg}
+            div(class="row")
+                div(class="col-9")
+                    h5(class="mt-2") Wordpress XYZ PHP Scripts of #{wpSiteId}
+            div(class="alert alert-warning") This page helps streamline the integration of SEO-CROMOM to WordPress. For each supported service it shows a ready,to copy PHP code snippet you and paste in to the <b>XYZ PHP Code plugin</b>.
+            hr
+            div(class="mb-md-5")
+                h6 Seo-cromom admin PHP code snippet
+                hr
+                textarea(class="form-control" rows="5") #{seocPhpCode}
+            div(class="mb-md-5")
+                h6 Spyfu PHP code snippet
+                hr
+                textarea(class="form-control" rows="5") #{spyfuPhpCode}
+            div(class="mb-md-5")
+                h6 OneHourIndexing PHP code snippet
+                hr
+                textarea(class="form-control" rows="5") #{onehourindexingPhpCode}
+            div(class="mb-md-5")
+                h6 Yourtext PHP code snippet
+                hr
+                textarea(class="form-control" rows="5") #{yourtextPhpCode}
+            div(class="mb-md-5")
+                h6 Semrush PHP code snippet
+                hr
+                textarea(class="form-control" rows="5") #{semrushPhpCode}
+            div(class="mb-md-5")
+                h6 Sistrix PHP code snippet
+                hr
+                textarea(class="form-control" rows="5") #{sistrixPhpCode}
+            div(class="mb-md-5")
+                h6 Majestic PHP code snippet
+                hr
+                textarea(class="form-control" rows="5") #{majesticPhpCode}
+            div(class="mb-md-5")
+                h6 Babbar PHP code snippet
+                hr
+                textarea(class="form-control" rows="5") #{babbarPhpCode}
+            div(class="mb-md-5")
+                h6 Spinrewriter PHP code snippet
+                hr
+                textarea(class="form-control" rows="5") #{spinrewriterPhpCode}
+            div(class="mb-md-5")
+                h6 Smodin PHP code snippet
+                hr
+                textarea(class="form-control" rows="5") #{smodinPhpCode}
+            div(class="mb-md-5")
+                h6 Iconscout PHP code snippet
+                hr
+                textarea(class="form-control" rows="5") #{iconscoutPhpCode}
+            div(class="mb-md-5")
+                h6 Espinner PHP code snippet
+                hr
+                textarea(class="form-control" rows="5") #{espinnerPhpCode}
+            div(class="mb-md-5")
+                h6 Seolyze PHP code snippet
+                hr
+                textarea(class="form-control" rows="5") #{seolyzePhpCode}
+            div(class="mb-md-5")
+                h6 Dinorank PHP code snippet
+                hr
+                textarea(class="form-control" rows="5") #{dinorankPhpCode}
+            div(class="mb-md-5")
+                h6 Wordhero PHP code snippet
+                hr
+                textarea(class="form-control" rows="5") #{wordheroPhpCode}
+            div(class="mb-md-5")
+                h6 Lowfruits PHP code snippet
+                hr
+                textarea(class="form-control" rows="5") #{lowfruitsPhpCode}
+            div(class="mb-md-5")
+                h6 Answerthepublic PHP code snippet
+                hr
+                textarea(class="form-control" rows="5") #{answerthepublicPhpCode}
+            div(class="mb-md-5")
+                h6 Pbnpremium PHP code snippet
+                hr
+                textarea(class="form-control" rows="5") #{pbnpremiumPhpCode}
+            div(class="mb-md-5")
+                h6 Closerscopy PHP code snippet
+                hr
+                textarea(class="form-control" rows="5") #{closerscopyPhpCode}
+            div(class="mb-md-5")
+                h6 Domcop PHP code snippet
+                hr
+                textarea(class="form-control" rows="5") #{domcopPhpCode}
+            div(class="mb-md-5")
+                h6 Neilpatel PHP code snippet
+                hr
+                textarea(class="form-control" rows="5") #{neilpatelPhpCode}
+            div(class="mb-md-5")
+                h6 Envato PHP code snippet
+                hr
+                textarea(class="form-control" rows="5") #{envatoPhpCode}
+            div(class="mb-md-5")
+                h6 Freepik PHP code snippet
+                hr
+                textarea(class="form-control" rows="5") #{freepikPhpCode}
+            div(class="mb-md-5")
+                h6 Rytr PHP code snippet
+                hr
+                textarea(class="form-control" rows="5") #{rytrPhpCode}
+            div(class="mb-md-5")
+                h6 Keysearch PHP code snippet
+                hr
+                textarea(class="form-control" rows="5") #{keysearchPhpCode}
+            div(class="mb-md-5")
+                h6 Paraphraser PHP code snippet
+                hr
+                textarea(class="form-control" rows="5") #{paraphraserPhpCode}
+            div(class="mb-md-5")
+                h6 Bigspy PHP code snippet
+                hr
+                textarea(class="form-control" rows="5") #{bigspyPhpCode}
+            div(class="mb-md-5")
+                h6 Quetext PHP code snippet
+                hr
+                textarea(class="form-control" rows="5") #{quetextPhpCode}
+            div(class="mb-md-5")
+                h6 Ranktracker PHP code snippet
+                hr
+                textarea(class="form-control" rows="5") #{ranktrackerPhpCode}
+            div(class="mb-md-5")
+                h6 Ahrefs PHP code snippet
+                hr
+                textarea(class="form-control" rows="5") #{ahrefsPhpCode}
+            div(class="mb-md-5")
+                h6 Spamzilla PHP code snippet
+                hr
+                textarea(class="form-control" rows="5") #{spamzillaPhpCode}
+            div(class="mb-md-5")
+                h6 Seomonitor PHP code snippet
+                hr
+                textarea(class="form-control" rows="5") #{seomonitorPhpCode}
+            div(class="mb-md-5")
+                h6 Colinkri PHP code snippet
+                hr
+                textarea(class="form-control" rows="5") #{colinkriPhpCode}
+            div(class="mb-md-5")
+                h6 Keywordspeopleuse PHP code snippet
+                hr
+                textarea(class="form-control" rows="5") #{keywordspeopleusePhpCode}
+            div(class="mb-md-5")
+                h6 Serpstat PHP code snippet
+                hr
+                textarea(class="form-control" rows="5") #{serpstatPhpCode}
+            div(class="mb-md-5")
+                h6 Haloscan PHP code snippet
+                hr
+                textarea(class="form-control" rows="5") #{haloscanPhpCode}
+            div(class="mb-md-5")
+                h6 Copyfy PHP code snippet
+                hr
+                textarea(class="form-control" rows="5") #{copyfyPhpCode}
+            div(class="mb-md-5")
+                h6 Languagetool PHP code snippet
+                hr
+                textarea(class="form-control" rows="5") #{languagetoolPhpCode}
+            div(class="mb-md-5")
+                h6 Xovi PHP code snippet
+                hr
+                textarea(class="form-control" rows="5") #{xoviPhpCode}
+            div(class="mb-md-5")
+                h6 Seoptimer PHP code snippet
+                hr
+                textarea(class="form-control" rows="5") #{seoptimerPhpCode}
+            div(class="mb-md-5")
+                h6 Placeit PHP code snippet
+                hr
+                textarea(class="form-control" rows="5") #{placeitPhpCode}
+
+

@@ -1,0 +1,23 @@
+h6(class="mt-4 font-weight-bold") Wordhero params
+hr(class="mt-0 mb-2")
+div(class="row mb")
+    div(class="col-sm")
+        label Domain
+        input(type="text" class="form-control" id="wordhero-domain" name="wordhero-domain"
+            placeholder="Domain used to connect to the Wordhero service"
+            value=wordheroDomain)
+        if errors && errors['wordhero-domain']
+            span(class="text-danger") #{errors['wordhero-domain']}
+div(class="row mt-2")
+    div(class="col-sm")
+        label Username:
+        input(type="text" class="form-control" id="wordhero-username" name="wordhero-username"
+            value=wordheroUsername)
+        if errors && errors['wordhero-username']
+            span(class="text-danger") #{errors['wordhero-username']}
+    div(class="col-sm")
+        label Password:
+        input(type="text" class="form-control" id="wordhero-pwrd" name="wordhero-pwrd"
+            value=wordheroPassword)
+        if errors && errors['wordhero-pwrd']
+            span(class="text-danger") #{errors['wordhero-pwrd']}

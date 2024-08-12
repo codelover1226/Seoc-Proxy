@@ -1,0 +1,48 @@
+extends layout
+
+block content
+    script.
+        $(document).ready(function () {
+            $('.delete-btn').click(function(){
+                const choice = confirm("Do you really want to delete this item?");
+                if (choice) {
+                    location.assign($(this).attr('data-url'));
+                }
+            });
+        });
+
+    div(class="row")
+        div(class="col-sm")
+            h1(class="mt-2") #{title}
+            div(class="mt-2 mb-2")
+                a(href=homeUrl) Home
+            div(class="mt-3 mb-2")
+                a(href=addSiteUrl class="btn btn-primary") New site
+            table(class="table table-bordered table-sm")
+                tr
+                    th Root URL
+                    th REST Me API Path
+                    th Membership Pro API Path
+                    th Membership Pro API Key
+                    th(style="width:12%") Actions
+                if allSites && allSites.length > 0
+                    each wpSite in allSites
+                        tr
+                            td #{wpSite.rootUrl}
+                            td #{wpSite.restMeApiPath}
+                            td #{wpSite.membershipProApiPath}
+                            td #{wpSite.membershipProApiKey}
+                            td
+                                div
+                                    a(href=phpScriptsUrl + "?id=" + wpSite._id) View php scipts
+                                div
+                                    button(type="button" class="btn btn-link p-0 delete-btn" data-url=deleteSiteUrl + "?id=" + wpSite._id) Delete
+                else
+                    tr
+                        td -
+                        td -
+                        td -
+                        td -
+                        td -
+                        td -
+

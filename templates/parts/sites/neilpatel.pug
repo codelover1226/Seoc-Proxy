@@ -1,0 +1,25 @@
+h6(class="mt-4 font-weight-bold")
+span Neilpatel params
+a(href=`https://${neilpatelDomain}/login` class="ml-2" target="_blank") [Log in]
+hr(class="mt-0 mb-2")
+div(class="row mb")
+    div(class="col-sm")
+        label Domain
+        input(type="text" class="form-control" id="neilpatel-domain" name="neilpatel-domain"
+            placeholder="Domain used to connect to the Neilpatel service"
+            value=neilpatelDomain)
+        if errors && errors['neilpatel-domain']
+            span(class="text-danger") #{errors['neilpatel-domain']}
+div(class="row mt-2")
+    div(class="col-sm")
+        label Username:
+        input(type="text" class="form-control" id="neilpatel-username" name="neilpatel-username"
+            value=neilpatelUsername)
+        if errors && errors['neilpatel-username']
+            span(class="text-danger") #{errors['neilpatel-username']}
+    div(class="col-sm")
+        label Password:
+        input(type="text" class="form-control" id="neilpatel-pwrd" name="neilpatel-pwrd"
+            value=neilpatelPassword)
+        if errors && errors['neilpatel-pwrd']
+            span(class="text-danger") #{errors['neilpatel-pwrd']}

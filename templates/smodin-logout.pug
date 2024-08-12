@@ -1,0 +1,44 @@
+doctype html
+html
+    head
+        title Smodin log out
+        script.
+            window.addEventListener("DOMContentLoaded", function () {
+                window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+                // DON'T use "const indexedDB = ..." if you're not in a function.
+                // Moreover, you may need references to some window.IDB* objects:
+                window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.msIDBTransaction;
+                window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || window.msIDBKeyRange;
+                // (Mozilla has never prefixed these objects, so we don't need window.mozIDB*)
+
+                const errorStyle = 'color: #be0000;background-color: #f8d7da;border-color: #f5c6cb;' +
+                    'margin-left: auto;margin-right: auto;width: 70%; padding: 20px;font-size: 1.4rem;text-align: center;';
+
+                const successStyle = 'color: #0d462c;background-color: #d1e7dd;border-color: #bfddcf;' +
+                    'margin-left: auto;margin-right: auto;width: 70%; padding: 20px;font-size: 1.4rem;text-align: center;';
+
+                let db = undefined;
+
+                const DBOpenRequest = window.indexedDB.open('firebaseLocalStorageDb', 1);
+
+                DBOpenRequest.onsuccess = function (event) {
+                    try {
+                        db = DBOpenRequest.result;
+                        let transaction = db.transaction(['firebaseLocalStorage'], 'readwrite');
+                        let objectStore = transaction.objectStore('firebaseLocalStorage');
+                        objectStore.clear();
+                        document.body.innerHTML = '<div style="' + successStyle + '">Session has been deleted successfully. You\'ll be redirected in a few seconds</div>';
+                        const interval = setInterval(function () {
+                            clearInterval(interval);
+                            location.assign("/");
+                        }, 2000);
+                    } catch (error) {
+                        document.body.innerHTML = '<div style="' + errorStyle + '">Failed to delete the current session.</div>';
+                    }
+                };
+            });
+    body
+        div(class="container")
+            block content
+            div(class="row")
+                div(class="col-sm") Please wait processing...

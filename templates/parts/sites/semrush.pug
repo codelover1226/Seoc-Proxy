@@ -1,0 +1,36 @@
+h6(class="mt-4 font-weight-bold") Semrush params
+hr(class="mt-0 mb-2")
+div(class="row mb")
+    div(class="col-sm")
+        label Domain
+        input(type="text" class="form-control" id="semrush-domain" name="semrush-domain"
+            placeholder="Domain used to connect to the Semrush service"
+            value=semrushDomain)
+        if errors && errors['semrush-domain']
+            span(class="text-danger") #{errors['semrush-domain']}
+div(class="row mt-2")
+    div(class="col-sm")
+        label Username:
+        input(type="text" class="form-control" id="semrush-username" name="semrush-username"
+            value=semrushUsername)
+        if errors && errors['semrush-username']
+            span(class="text-danger") #{errors['semrush-username']}
+    div(class="col-sm")
+        label Password:
+        input(type="text" class="form-control" id="semrush-pwrd" name="semrush-pwrd"
+            value=semrushPassword)
+        if errors && errors['semrush-pwrd']
+            span(class="text-danger") #{errors['semrush-pwrd']}
+div(class="row mt-3")
+    div(class="col-sm")
+        label Keywords limit / day:
+        input(type="text" class="form-control" id="semrush-keyword-limit" name="semrush-keyword-limit"
+            value=semrushKeywordLimit)
+        if errors && errors['semrush-keyword-limit']
+            span(class="text-danger") #{errors['semrush-keyword-limit']}
+    div(class="col-sm")
+        label Domain explorer limit / day:
+        input(type="text" class="form-control" id="semrush-domain-explorer-limit" name="semrush-domain-explorer-limit"
+            value=semrushDomainExplorerLimit)
+        if errors && errors['semrush-domain-explorer-limit']
+            span(class="text-danger") #{errors['semrush-domain-explorer-limit']}

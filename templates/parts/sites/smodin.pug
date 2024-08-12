@@ -1,0 +1,25 @@
+h6(class="mt-4 font-weight-bold")
+    span Smodin params
+    a(href=`https://${smodinDomain}/seoc/admin/do-logout.po` class="ml-2" target="_blank") [Log out]
+hr(class="mt-0 mb-2")
+div(class="row mb")
+    div(class="col-sm")
+        label Domain
+        input(type="text" class="form-control" id="smodin-domain" name="smodin-domain"
+            placeholder="Domain used to connect to the Smodin service"
+            value=smodinDomain)
+        if errors && errors['smodin-domain']
+            span(class="text-danger") #{errors['smodin-domain']}
+div(class="row mt-2")
+    div(class="col-sm")
+        label Username:
+        input(type="text" class="form-control" id="smodin-username" name="smodin-username"
+            value=smodinUsername)
+        if errors && errors['smodin-username']
+            span(class="text-danger") #{errors['smodin-username']}
+    div(class="col-sm")
+        label Password:
+        input(type="text" class="form-control" id="smodin-pwrd" name="smodin-pwrd"
+            value=smodinPassword)
+        if errors && errors['smodin-pwrd']
+            span(class="text-danger") #{errors['smodin-pwrd']}

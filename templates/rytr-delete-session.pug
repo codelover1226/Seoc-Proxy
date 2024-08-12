@@ -1,0 +1,12 @@
+extends layout
+block content
+    div(class="row")
+        div(class="container")
+            h3(class="ml-auto mr-auto") Rytr session deletion
+            div(class="mt-5 ml-auto mr-auto" id="page-msg") Rytr session was deleted. You will be redirected to the home page.
+            script.
+                window.localStorage.clear();
+                const interval = setInterval(function () {
+                    clearInterval(interval);
+                    location.assign("#{redirectUrl}");
+                }, 2000);

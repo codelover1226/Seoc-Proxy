@@ -1,0 +1,23 @@
+h6(class="mt-4 font-weight-bold") Spinrewriter params
+hr(class="mt-0 mb-2")
+div(class="row mb")
+    div(class="col-sm")
+        label Domain
+        input(type="text" class="form-control" id="spinrewriter-domain" name="spinrewriter-domain"
+            placeholder="Domain used to connect to the Spinrewriter service"
+            value=spinrewriterDomain)
+        if errors && errors['spinrewriter-domain']
+            span(class="text-danger") #{errors['spinrewriter-domain']}
+div(class="row mt-2")
+    div(class="col-sm")
+        label Username:
+        input(type="text" class="form-control" id="spinrewriter-username" name="spinrewriter-username"
+            value=spinrewriterUsername)
+        if errors && errors['spinrewriter-username']
+            span(class="text-danger") #{errors['spinrewriter-username']}
+    div(class="col-sm")
+        label Password:
+        input(type="text" class="form-control" id="spinrewriter-pwrd" name="spinrewriter-pwrd"
+            value=spinrewriterPassword)
+        if errors && errors['spinrewriter-pwrd']
+            span(class="text-danger") #{errors['spinrewriter-pwrd']}

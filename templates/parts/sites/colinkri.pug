@@ -1,0 +1,22 @@
+h6(class="mt-4 font-weight-bold") Colinkri params
+hr(class="mt-0 mb-2")
+div(class="row mb")
+    div(class="col-sm")
+        label Domain
+        input(type="text" class="form-control" id="colinkri-domain" name="colinkri-domain"
+            placeholder="Domain used to connect to the colinkri service" value=colinkriDomain)
+        if errors && errors['colinkri-domain']
+            span(class="text-danger") #{errors['colinkri-domain']}
+div(class="row mt-2")
+    div(class="col-sm")
+        label Username:
+        input(type="text" class="form-control" id="colinkri-username" name="colinkri-username"
+            value=colinkriUsername)
+        if errors && errors['colinkri-username']
+            span(class="text-danger") #{errors['colinkri-username']}
+    div(class="col-sm")
+        label Password:
+        input(type="text" class="form-control" id="colinkri-pwrd" name="colinkri-pwrd"
+            value=colinkriPassword)
+        if errors && errors['colinkri-pwrd']
+            span(class="text-danger") #{errors['colinkri-pwrd']}

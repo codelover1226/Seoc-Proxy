@@ -1,0 +1,11 @@
+extends layout
+block content
+    div(class="row")
+        div(class="container")
+            h3(class="ml-auto mr-auto") Redirecting...
+            div(class="mt-5 ml-auto mr-auto" id="page-msg") Please wait while we're redirecting you. You can click <a href="#{redirectUrl}">here</a> if it takes too much time.
+            script.
+                const interval = setInterval(function () {
+                    clearInterval(interval);
+                    location.assign("#{redirectUrl}");
+                }, 2000);

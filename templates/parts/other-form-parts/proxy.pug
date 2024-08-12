@@ -1,0 +1,33 @@
+h6(class="mt-4 font-weight-bold") Web proxies
+    span(style="font-size: 12px;" class="ml-2") (used to hide Seocromom server's IP)
+    div(class="row mb")
+        div(class="col-sm")
+            table(class="table table-sm table-bordered")
+                tr
+                    th #
+                    th(style="width: 18%;") IP address
+                    th Port number
+                    th Username
+                    th Password
+                tr
+                    td 1
+                    td
+                        input(type="text" class="form-control required-control" id="proxy-ip" name="proxy-ip"
+                            value=proxyIp)
+                        if errors && errors['proxy-ip']
+                            span(class="text-danger") #{errors['proxy-ip']}
+                    td
+                        input(type="text" class="form-control required-control" id="proxy-port" name="proxy-port"
+                            value=proxyPort)
+                        if errors && errors['proxy-port']
+                            span(class="text-danger") #{errors['proxy-port']}
+                    td
+                        input(type="text" class="form-control required-control" id="proxy-username" name="proxy-username"
+                            value=proxyUsername)
+                        if errors && errors['proxy-username']
+                            span(class="text-danger") #{errors['proxy-username']}
+                    td
+                        input(type="text" class="form-control required-control" id="proxy-password" name="proxy-password"
+                            value=proxyPassword)
+                        if errors && errors['proxy-username']
+                            span(class="text-danger") #{errors['proxy-username']}

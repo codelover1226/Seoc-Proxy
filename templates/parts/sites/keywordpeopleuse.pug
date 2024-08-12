@@ -1,0 +1,22 @@
+h6(class="mt-4 font-weight-bold") Keywordspeopleuse params
+hr(class="mt-0 mb-2")
+div(class="row mb")
+    div(class="col-sm")
+        label Domain
+        input(type="text" class="form-control" id="keywordspeopleuse-domain" name="keywordspeopleuse-domain"
+            placeholder="Domain used to connect to the keywordspeopleuse service" value=keywordspeopleuseDomain)
+        if errors && errors['keywordspeopleuse-domain']
+            span(class="text-danger") #{errors['keywordspeopleuse-domain']}
+div(class="row mt-2")
+    div(class="col-sm")
+        label Username:
+        input(type="text" class="form-control" id="keywordspeopleuse-username" name="keywordspeopleuse-username"
+            value=keywordspeopleuseUsername)
+        if errors && errors['keywordspeopleuse-username']
+            span(class="text-danger") #{errors['keywordspeopleuse-username']}
+    div(class="col-sm")
+        label Password:
+        input(type="text" class="form-control" id="keywordspeopleuse-pwrd" name="keywordspeopleuse-pwrd"
+            value=keywordspeopleusePassword)
+        if errors && errors['keywordspeopleuse-pwrd']
+            span(class="text-danger") #{errors['keywordspeopleuse-pwrd']}

@@ -1,0 +1,23 @@
+h6(class="mt-4 font-weight-bold") Espinner params
+hr(class="mt-0 mb-2")
+div(class="row mb")
+    div(class="col-sm")
+        label Domain
+        input(type="text" class="form-control" id="espinner-domain" name="espinner-domain"
+            placeholder="Domain used to connect to the Espinner service"
+            value=espinnerDomain)
+        if errors && errors['espinner-domain']
+            span(class="text-danger") #{errors['espinner-domain']}
+div(class="row mt-2")
+    div(class="col-sm")
+        label Username:
+        input(type="text" class="form-control" id="espinner-username" name="espinner-username"
+            value=espinnerUsername)
+        if errors && errors['espinner-username']
+            span(class="text-danger") #{errors['espinner-username']}
+    div(class="col-sm")
+        label Password:
+        input(type="text" class="form-control" id="espinner-pwrd" name="espinner-pwrd"
+            value=espinnerPassword)
+        if errors && errors['espinner-pwrd']
+            span(class="text-danger") #{errors['espinner-pwrd']}

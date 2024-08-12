@@ -1,0 +1,63 @@
+extends layout
+
+block content
+    div(class="row")
+        div(class="col-sm")
+            h1(class="mt-2") #{title}
+        div(class="col-sm text-right")
+            div(class="dropdown d-inline-block pr-0 ml-2 mr-2")
+                button(class="btn btn-link dropdown-toggle pr-0" type="button"
+                id="services-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") Websites
+                div(class="dropdown-menu" aria-labelledby="services-dropdown")
+                    a(class="dropdown-item" href=spyfuUrl target="_blank") Spyfu
+                    a(class="dropdown-item" href=onehourindexingUrl target="_blank") OneHourIndexing
+                    a(class="dropdown-item" href=yourtextUrl target="_blank") Yourtext
+                    a(class="dropdown-item" href=semrushUrl target="_blank") Semrush
+                    a(class="dropdown-item" href=sistrixUrl target="_blank") Sistrix
+                    a(class="dropdown-item" href=majesticUrl target="_blank") Majestic
+                    a(class="dropdown-item" href=babbarUrl target="_blank") Babbar
+                    a(class="dropdown-item" href=spinrewriterUrl target="_blank") Spinrewriter
+                    a(class="dropdown-item" href=smodinUrl target="_blank") Smodin
+                    a(class="dropdown-item" href=iconscoutUrl target="_blank") Iconscout
+                    a(class="dropdown-item" href=espinnerUrl target="_blank") Espinner
+                    a(class="dropdown-item" href=seolyzeUrl target="_blank") Seolyze
+                    a(class="dropdown-item" href=dinorankUrl target="_blank") Dinorank
+                    a(class="dropdown-item" href=wordheroUrl target="_blank") Wordhero
+                    a(class="dropdown-item" href=lowfruitsUrl target="_blank") Lowfruits
+                    a(class="dropdown-item" href=answerthepublicUrl target="_blank") Answerthepublic
+                    a(class="dropdown-item" href=pbnpremiumUrl target="_blank") Pbnpremium
+                    a(class="dropdown-item" href=closerscopyUrl target="_blank") Closerscopy
+                    a(class="dropdown-item" href=domcopUrl target="_blank") Domcop
+                    a(class="dropdown-item" href=neilpatelUrl target="_blank") Neilpatel
+                    a(class="dropdown-item" href=envatoUrl target="_blank") Envato
+                    a(class="dropdown-item" href=freepikUrl target="_blank") Freepik
+                    a(class="dropdown-item" href=rytrUrl target="_blank") Rytr
+                    a(class="dropdown-item" href=keysearchUrl target="_blank") Keysearch
+                    a(class="dropdown-item" href=paraphraserUrl target="_blank") Paraphraser
+                    a(class="dropdown-item" href=bigspyUrl target="_blank") Bigspy
+                    a(class="dropdown-item" href=quetextUrl target="_blank") Quetext
+                    a(class="dropdown-item" href=ranktrackerUrl target="_blank") Ranktracker
+                    a(class="dropdown-item" href=ahrefsUrl target="_blank") Ahrefs
+                    a(class="dropdown-item" href=spamzillaUrl target="_blank") Spamzilla
+                    a(class="dropdown-item" href=seomonitorUrl target="_blank") Seomonitor
+                    a(class="dropdown-item" href=colinkriUrl target="_blank") Colinkri
+                    a(class="dropdown-item" href=keywordspeopleuseUrl target="_blank") Keywordspeopleuse
+                    a(class="dropdown-item" href=serpstatUrl target="_blank") Serpstat
+                    a(class="dropdown-item" href=haloscanUrl target="_blank") Haloscan
+                    a(class="dropdown-item" href=copyfyUrl target="_blank") Copyfy
+                    a(class="dropdown-item" href=languagetoolUrl target="_blank") Languagetool
+                    a(class="dropdown-item" href=xoviUrl target="_blank") Xovi
+                    a(class="dropdown-item" href=seoptimerUrl target="_blank") Seoptimer
+                    a(class="dropdown-item" href=placeitUrl target="_blank") Placeit
+            span |
+            div(class="dropdown d-inline-block pr-0 ml-2 mr-2")
+                a(class="mr-2" href=wordpressSitesUrl target="_blank") WordPress Sites
+                span |
+                a(class="font-weight-bold ml-2 mr-2" href=logsUrl target="_blank") logs
+                span |
+                a(class="ml-2" href=logoutUrl) Log out
+    if (adminCanConnectOnce)
+        div(class="alert alert-info") You can access all the other services (semrush, sistrix, etc) with this session.
+    else
+        div(class="alert alert-warning") Sorry, but in other to access the other services (semrush, sistrix, etc), you will have to connect to each of them from WordPress by clicking on their button.
+    include ./parts/form.pug

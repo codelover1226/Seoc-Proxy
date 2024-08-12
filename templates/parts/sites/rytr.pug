@@ -1,0 +1,25 @@
+h6(class="mt-4 font-weight-bold")
+    span Rytr params
+    a(href=`https://${rytrDomain}/backend/delete/session` class="ml-2" target="_blank") [Delete session]
+hr(class="mt-0 mb-2")
+div(class="row mb")
+    div(class="col-sm")
+        label Domain
+        input(type="text" class="form-control" id="rytr-domain" name="rytr-domain"
+            placeholder="Domain used to connect to the Rytr service"
+            value=rytrDomain)
+        if errors && errors['rytr-domain']
+            span(class="text-danger") #{errors['rytr-domain']}
+div(class="row mt-2")
+    div(class="col-sm")
+        label Username:
+        input(type="text" class="form-control" id="rytr-username" name="rytr-username"
+            value=rytrUsername)
+        if errors && errors['rytr-username']
+            span(class="text-danger") #{errors['rytr-username']}
+    div(class="col-sm")
+        label Password:
+        input(type="text" class="form-control" id="rytr-pwrd" name="rytr-pwrd"
+            value=rytrPassword)
+        if errors && errors['rytr-pwrd']
+            span(class="text-danger") #{errors['rytr-pwrd']}

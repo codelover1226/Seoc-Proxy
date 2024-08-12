@@ -1,0 +1,22 @@
+h6(class="mt-4 font-weight-bold") OneHourIndexing params
+hr(class="mt-0 mb-2")
+div(class="row mb")
+    div(class="col-sm")
+        label Domain
+        input(type="text" class="form-control" id="onehourindexing-domain" name="onehourindexing-domain"
+            placeholder="Domain used to connect to the OneHourIndexing service" value=onehourindexingDomain)
+        if errors && errors['onehourindexing-domain']
+            span(class="text-danger") #{errors['onehourindexing-domain']}
+div(class="row mt-2")
+    div(class="col-sm")
+        label Username:
+        input(type="text" class="form-control" id="onehourindexing-username" name="onehourindexing-username"
+            value=onehourindexingUsername)
+        if errors && errors['onehourindexing-username']
+            span(class="text-danger") #{errors['onehourindexing-username']}
+    div(class="col-sm")
+        label Password:
+        input(type="text" class="form-control" id="onehourindexing-pwrd" name="onehourindexing-pwrd"
+            value=onehourindexingPassword)
+        if errors && errors['onehourindexing-pwrd']
+            span(class="text-danger") #{errors['onehourindexing-pwrd']}

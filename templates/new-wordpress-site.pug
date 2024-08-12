@@ -1,0 +1,37 @@
+extends layout
+
+block content
+    div(class="row")
+        div(class="col-sm")
+            h5(class="mt-2") #{title}
+            div
+                form(id="new-form" action=formAction method="post" class="mb-5")
+                    if errorMsg
+                        div(class="alert alert-danger") #{errorMsg}
+                    div(class="row mb-2")
+                        div(class="col-sm")
+                            label Wordpress Root URL
+                            input(type="text" class="form-control required-control" name="root-url"
+                            placeholder="Ex: https://example.com or https://localhost" value=rootUrl)
+                            if errors && errors['root-url']
+                                span(class="text-danger") #{errors['root-url']}
+                        div(class="col-sm")
+                            label REST Me API Path
+                            input(type="text" class="form-control required-control" name="rest-api-path" placeholder="/path/to/api" value=restApiPath)
+                            if errors && errors['rest-api-path']
+                                span(class="text-danger") #{errors['rest-api-path']}
+                    div(class="row mb")
+                        div(class="col-sm")
+                            label Membership Pro API Path
+                            input(type="text" class="form-control required-control" id="mem-pro-api-path" name="mem-pro-api-path" placeholder="/path/to/api"
+                            value=membershipProApiPath)
+                            if errors && errors['mem-pro-api-path']
+                                span(class="text-danger") #{errors['mem-pro-api-path']}
+                        div(class="col-sm")
+                            label Membership Pro API Key
+                            input(type="text" class="form-control required-control" id="mem-pro-api-key" name="mem-pro-api-key" value=membershipProApiKey)
+                            if errors && errors['mem-pro-api-key']
+                                span(class="text-danger") #{errors['mem-pro-api-key']}
+                    div(class="mt-3")
+                        button(type="submit" class="btn btn-primary") Save
+                        a(href=backUrl class="btn btn-secondary ml-4") Cancel

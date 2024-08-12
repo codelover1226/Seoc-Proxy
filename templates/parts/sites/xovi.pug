@@ -1,0 +1,22 @@
+h6(class="mt-4 font-weight-bold") Xovi params
+    hr(class="mt-0 mb-2")
+div(class="row mb")
+    div(class="col-sm")
+        label Domain:
+        input(type="text" class="form-control" id="xovi-domain" name="xovi-domain"
+            placeholder="Domain used to connect to the xovi service" value=xoviDomain)
+        if errors && errors['xovi-domain']
+            span(class="text-danger") #{errors['xovi-domain']}
+div(class="row mt-2")
+    div(class="col-sm")
+        label Username:
+        input(type="text" class="form-control" id="xovi-username" name="xovi-username"
+            value=xoviUsername)
+        if errors && errors['xovi-username']
+            span(class="text-danger") #{errors['xovi-username']}
+    div(class="col-sm")
+        label Password:
+        input(type="text" class="form-control" id="xovi-pwrd" name="xovi-pwrd"
+            value=xoviPassword)
+        if errors && errors['xovi-pwrd']
+            span(class="text-danger") #{errors['xovi-pwrd']}

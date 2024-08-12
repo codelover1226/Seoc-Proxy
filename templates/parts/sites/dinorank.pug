@@ -1,0 +1,30 @@
+h6(class="mt-4 font-weight-bold") Dinorank params
+hr(class="mt-0 mb-2")
+div(class="row mb")
+    div(class="col-sm")
+        label Domain
+        input(type="text" class="form-control" id="dinorank-domain" name="dinorank-domain"
+            placeholder="Domain used to connect to the Dinorank service"
+            value=dinorankDomain)
+        if errors && errors['dinorank-domain']
+            span(class="text-danger") #{errors['dinorank-domain']}
+div(class="row mt-2")
+    div(class="col-sm")
+        label Username:
+        input(type="text" class="form-control" id="dinorank-username" name="dinorank-username"
+            value=dinorankUsername)
+        if errors && errors['dinorank-username']
+            span(class="text-danger") #{errors['dinorank-username']}
+    div(class="col-sm")
+        label Password:
+        input(type="text" class="form-control" id="dinorank-pwrd" name="dinorank-pwrd"
+            value=dinorankPassword)
+        if errors && errors['dinorank-pwrd']
+            span(class="text-danger") #{errors['dinorank-pwrd']}
+div(class="row mt-3")
+    div(class="col-4")
+        label Keywords limit / day:
+        input(type="text" class="form-control" id="dinorank-keyword-limit" name="dinorank-keyword-limit"
+            value=dinorankKeywordLimit)
+        if errors && errors['dinorank-keyword-limit']
+            span(class="text-danger") #{errors['dinorank-keyword-limit']}

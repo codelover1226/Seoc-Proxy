@@ -1,0 +1,25 @@
+h6(class="mt-4 font-weight-bold")
+    span Ranktracker params
+    a(href=`https://${ranktrackerDomain}/mcop-ranktracker/delete_session` class="ml-2" target="_blank") [Delete session]
+hr(class="mt-0 mb-2")
+div(class="row mb")
+    div(class="col-sm")
+        label Domain
+        input(type="text" class="form-control" id="ranktracker-domain" name="ranktracker-domain"
+            placeholder="Domain used to connect to the Ranktracker service"
+            value=ranktrackerDomain)
+        if errors && errors['ranktracker-domain']
+            span(class="text-danger") #{errors['ranktracker-domain']}
+div(class="row mt-2")
+    div(class="col-sm")
+        label Username:
+        input(type="text" class="form-control" id="ranktracker-username" name="ranktracker-username"
+            value=ranktrackerUsername)
+        if errors && errors['ranktracker-username']
+            span(class="text-danger") #{errors['ranktracker-username']}
+    div(class="col-sm")
+        label Password:
+        input(type="text" class="form-control" id="ranktracker-pwrd" name="ranktracker-pwrd"
+            value=ranktrackerPassword)
+        if errors && errors['ranktracker-pwrd']
+            span(class="text-danger") #{errors['ranktracker-pwrd']}

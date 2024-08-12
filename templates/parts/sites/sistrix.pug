@@ -1,0 +1,23 @@
+h6(class="mt-4 font-weight-bold") Sistrix params
+hr(class="mt-0 mb-2")
+div(class="row mb")
+    div(class="col-sm")
+        label Domain
+        input(type="text" class="form-control" id="sistrix-domain" name="sistrix-domain"
+            placeholder="Domain used to connect to the Sistrix service"
+            value=sistrixDomain)
+        if errors && errors['sistrix-domain']
+            span(class="text-danger") #{errors['sistrix-domain']}
+div(class="row mt-2")
+    div(class="col-sm")
+        label Username:
+        input(type="text" class="form-control" id="sistrix-username" name="sistrix-username"
+            value=sistrixUsername)
+        if errors && errors['sistrix-username']
+            span(class="text-danger") #{errors['sistrix-username']}
+    div(class="col-sm")
+        label Password:
+        input(type="text" class="form-control" id="sistrix-pwrd" name="sistrix-pwrd"
+            value=sistrixPassword)
+        if errors && errors['sistrix-pwrd']
+            span(class="text-danger") #{errors['sistrix-pwrd']}

@@ -1,0 +1,24 @@
+Welcome to the description about how to deploy the Seocromom proxy solution:
+
+Before stating you may need to run: 'chmod +x setup-app.sh' and 'chmod +x setup-ssl.sh'
+
+1- run the shell script in the debian folder ('seo-cromom-proxy/deployment/debian') by navigating to it and typing ./setup-app.sh
+
+2- Link the different subdomains to the server's ip address. Namely for :
+    - seocromom (this subdomain is used to connect to the admin dashboard and setup the proxy from a web interface)
+    - spyfu (this subdomain is used to connect members to https://www.spyfu.com)
+    - yourtext (this subdomain is used to connect members to https://yourtext.guru)
+    - onehourindexing (this subdomain is used to connect members to https://onehourindexing.co)
+    - sistrix (this subdomain is used to connect members to https://www.sistrix.com)
+    - semrush (this subdomain is used to connect members to https://www.semrush.com)
+    - majestic (this subdomain is used to connect members to https://majestic.com)
+    - babbar (this subdomain is used to connect members to https://www.babbar.tech)
+
+3- Now modify the file in 'seo-cromom-proxy/routes/sec/config.js' and replace the seoc-admin.localhost with the seocromom subdomain you choose in step 2
+
+4- Now run the shell script named setup.sh in the folder 'seo-cromom-proxy/deployment/debian' by navigating to it and typing ./setup-ssl.sh
+
+5- open your browser and type https://SEOCROMOM_SUB_DOMAIN/seoc/admin/temp-access.htm a page where you can enter the first parameter will show up. Fill in the form
+and save them. A confirmation page will display the XYZ scripts you can use to integrate the app to an initial Wordpress site.
+
+6- Run the shell script in step #4 to integrate the supplementary subdomains added in step 5

@@ -1,0 +1,23 @@
+h6(class="mt-4 font-weight-bold") Seolyze params
+hr(class="mt-0 mb-2")
+div(class="row mb")
+    div(class="col-sm")
+        label Domain
+        input(type="text" class="form-control" id="seolyze-domain" name="seolyze-domain"
+            placeholder="Domain used to connect to the Seolyze service"
+            value=seolyzeDomain)
+        if errors && errors['seolyze-domain']
+            span(class="text-danger") #{errors['seolyze-domain']}
+div(class="row mt-2")
+    div(class="col-sm")
+        label Username:
+        input(type="text" class="form-control" id="seolyze-username" name="seolyze-username"
+            value=seolyzeUsername)
+        if errors && errors['seolyze-username']
+            span(class="text-danger") #{errors['seolyze-username']}
+    div(class="col-sm")
+        label Password:
+        input(type="text" class="form-control" id="seolyze-pwrd" name="seolyze-pwrd"
+            value=seolyzePassword)
+        if errors && errors['seolyze-pwrd']
+            span(class="text-danger") #{errors['seolyze-pwrd']}

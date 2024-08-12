@@ -1,0 +1,25 @@
+h6(class="mt-4 font-weight-bold")
+    span Envato params
+    a(href=`https://${envatoDomain}/login` class="ml-2" target="_blank") [Log in]
+hr(class="mt-0 mb-2")
+div(class="row mb")
+    div(class="col-sm")
+        label Domain
+        input(type="text" class="form-control" id="envato-domain" name="envato-domain"
+            placeholder="Domain used to connect to the Envato service"
+            value=envatoDomain)
+        if errors && errors['envato-domain']
+            span(class="text-danger") #{errors['envato-domain']}
+div(class="row mt-2")
+    div(class="col-sm")
+        label Username:
+        input(type="text" class="form-control" id="envato-username" name="envato-username"
+            value=envatoUsername)
+        if errors && errors['envato-username']
+            span(class="text-danger") #{errors['envato-username']}
+    div(class="col-sm")
+        label Password:
+        input(type="text" class="form-control" id="envato-pwrd" name="envato-pwrd"
+            value=envatoPassword)
+        if errors && errors['envato-pwrd']
+            span(class="text-danger") #{errors['envato-pwrd']}

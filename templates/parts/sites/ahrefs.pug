@@ -1,0 +1,55 @@
+h6(class="mt-4 font-weight-bold") Ahrefs params
+    a(href=`https://${ahrefsDomain}/mcop-ahrefs/signin-link` class="ml-2" target="_blank") [Sign in with a verified link]
+hr(class="mt-0 mb-2")
+div(class="row mb")
+    div(class="col-sm")
+        label Domain:
+        input(type="text" class="form-control" id="ahrefs-domain" name="ahrefs-domain"
+            placeholder="Domain used to connect to the ahrefs service" value=ahrefsDomain)
+        if errors && errors['ahrefs-domain']
+            span(class="text-danger") #{errors['ahrefs-domain']}
+div(class="row mt-2")
+    div(class="col-sm")
+        label Username:
+        input(type="text" class="form-control" id="ahrefs-username" name="ahrefs-username"
+            value=ahrefsUsername)
+        if errors && errors['ahrefs-username']
+            span(class="text-danger") #{errors['ahrefs-username']}
+    div(class="col-sm")
+        label Password:
+        input(type="text" class="form-control" id="ahrefs-pwrd" name="ahrefs-pwrd"
+            value=ahrefsPassword)
+        if errors && errors['ahrefs-pwrd']
+            span(class="text-danger") #{errors['ahrefs-pwrd']}
+div(class="row mt-3")
+    div(class="col-4")
+        label Site explorer limit / day:
+        input(type="text" class="form-control" id="ahrefs-site-expl-limit" name="ahrefs-site-expl-limit"
+            value=ahrefsSiteExplorerLimit)
+        if errors && errors['ahrefs-site-expl-limit']
+            span(class="text-danger") #{errors['ahrefs-site-expl-limit']}
+    div(class="col-4")
+        label Keywords explorer limit / day:
+        input(type="text" class="form-control" id="ahrefs-keywords-expl-limit" name="ahrefs-keywords-expl-limit"
+            value=ahrefsKeywordsExplorerLimit)
+        if errors && errors['ahrefs-keywords-expl-limit']
+            span(class="text-danger") #{errors['ahrefs-keywords-expl-limit']}
+    div(class="col-4")
+        label Keywords explorer export limit / day:
+        input(type="text" class="form-control" id="ahrefs-keywords-expl-export-limit" name="ahrefs-keywords-expl-export-limit"
+            value=ahrefsKeywordsExportLimit)
+        if errors && errors['ahrefs-keywords-expl-export-limit']
+            span(class="text-danger") #{errors['ahrefs-keywords-expl-export-limit']}
+div(class="row mt-3")
+    div(class="col-sm")
+        label Batch analysis limit / day:
+        input(type="text" class="form-control" id="batch-analysis-limit" name="batch-analysis-limit"
+            value=batchAnalysisLimit)
+        if errors && errors['batch-analysis-limit']
+            span(class="text-danger") #{errors['batch-analysis-limit']}
+    div(class="col-sm")
+        label Batch analysis export limit / day:
+        input(type="text" class="form-control" id="ahrefs-batch-analysis-export-limit" name="ahrefs-batch-analysis-export-limit"
+            value=ahrefsBatchAnalysisExportLimit)
+        if errors && errors['ahrefs-batch-analysis-export-limit']
+            span(class="text-danger") #{errors['ahrefs-batch-analysis-export-limit']}

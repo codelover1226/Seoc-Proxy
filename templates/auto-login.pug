@@ -1,0 +1,45 @@
+- var __redirectUrl = '/';
+if redirectUrl
+    #__redirectUrl=redirectUrl
+doctype html
+html
+    head
+        title Connecting...
+        script(src='https://code.jquery.com/jquery-3.4.1.slim.min.js')
+        script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js')
+        script(src='https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js')
+        link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css')
+        link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/fontawesome.min.css')
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css')
+        script.
+            $(document).ready(function () {
+                const messageBlock = $("#page-msg");
+                const successStyle = 'color: green; font-weight: bold;';
+                const errorStyle = 'color: red; font-weight: bold;';
+
+                fetch('/do-auto-login').then(async function (response) {
+                    const data = await response.json();
+                    if (data.status === 'connected') {
+                        messageBlock.attr('style', 'color: green; font-weight: bold;');
+                        messageBlock.html(data.message);
+                        const interval = setInterval(function () {
+                            clearInterval(interval);
+                            location.replace('#{__redirectUrl}');
+                        }, 1500);
+                    } else {
+                        messageBlock.attr('style', 'color: red; font-weight: bold;');
+                        messageBlock.html(data.message);
+                    }
+                }).catch(function (reason) {
+                    console.log(reason);
+                    messageBlock.attr('style', 'color: red; font-weight: bold;');
+                    messageBlock.html('An error occurred.');
+                });
+            });
+    body
+        div(class="container")
+            h3(class="ml-auto mr-auto") Connecting...
+            div(class="mt-5 ml-auto mr-auto" id="page-msg") Please wait while we're establishing a new session.The operation may take up to 5 minutes; please be patient. Don't close this tab.
+            br
+            br
+            div(id="status-checker" style="text-align: center;font-size: 14px")

@@ -1,0 +1,23 @@
+h6(class="mt-4 font-weight-bold") Babbar params
+hr(class="mt-0 mb-2")
+div(class="row mb")
+    div(class="col-sm")
+        label Domain
+        input(type="text" class="form-control" id="babbar-domain" name="babbar-domain"
+            placeholder="Domain used to connect to the Babbar service"
+            value=babbarDomain)
+        if errors && errors['babbar-domain']
+            span(class="text-danger") #{errors['babbar-domain']}
+div(class="row mt-2")
+    div(class="col-sm")
+        label Username:
+        input(type="text" class="form-control" id="babbar-username" name="babbar-username"
+            value=babbarUsername)
+        if errors && errors['babbar-username']
+            span(class="text-danger") #{errors['babbar-username']}
+    div(class="col-sm")
+        label Password:
+        input(type="text" class="form-control" id="babbar-pwrd" name="babbar-pwrd"
+            value=babbarPassword)
+        if errors && errors['babbar-pwrd']
+            span(class="text-danger") #{errors['babbar-pwrd']}

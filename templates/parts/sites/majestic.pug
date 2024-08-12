@@ -1,0 +1,30 @@
+h6(class="mt-4 font-weight-bold") Majestic params
+hr(class="mt-0 mb-2")
+div(class="row mb")
+    div(class="col-sm")
+        label Domain
+        input(type="text" class="form-control" id="majestic-domain" name="majestic-domain"
+            placeholder="Domain used to connect to the Semrush service"
+            value=majesticDomain)
+        if errors && errors['majestic-domain']
+            span(class="text-danger") #{errors['majestic-domain']}
+div(class="row mt-2")
+    div(class="col-sm")
+        label Username:
+        input(type="text" class="form-control" id="majestic-username" name="majestic-username"
+            value=majesticUsername)
+        if errors && errors['majestic-username']
+            span(class="text-danger") #{errors['majestic-username']}
+    div(class="col-sm")
+        label Password:
+        input(type="text" class="form-control" id="majestic-pwrd" name="majestic-pwrd"
+            value=majesticPassword)
+        if errors && errors['majestic-pwrd']
+            span(class="text-danger") #{errors['majestic-pwrd']}
+div(class="row mt-3")
+    div(class="col-4")
+        label Bulk Backlink Checker limit / day:
+        input(type="text" class="form-control" id="majestic-bulk-backlink-check-limit" name="majestic-bulk-backlink-check-limit"
+            value=majestickBulkBacklinkCheckLimit)
+        if errors && errors['majestic-bulk-backlink-check-limit']
+            span(class="text-danger") #{errors['majestic-bulk-backlink-check-limit']}
