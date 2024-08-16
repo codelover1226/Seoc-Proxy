@@ -125,6 +125,11 @@ dispatcherUtils.getUserSessionDetails = async function (request) {
 dispatcherUtils.allAppsHandlersDetails = function (globalParams){
     return [
         {
+            subDomain: globalParams.crunchbaseDomain,
+            handler: require('./sites/crunchbase/handler'),
+            jsFileType: this.frontendComposFileTypes.PROXY_ALL_FILES,
+        },
+        {
             subDomain: globalParams.spyfuDomain,
             handler: require('./sites/spyfu/handler'),
             jsFileType: this.frontendComposFileTypes.PROXY_ALL_FILES,
