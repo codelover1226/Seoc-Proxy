@@ -80,11 +80,6 @@ helpers.validateParams =  function (params) {
     this.stringIsOk(params.membershipProApiPath, "Invalid MemberShip API path");
     this.stringIsOk(params.membershipProApiKey, "Invalid MemberShip API key");
 
-
-    this.stringIsOk(params.crunchbaseDomain, "Invalid crunchbase domain");
-    this.stringIsOk(params.crunchbaseUsername, "Invalid crunchbase username");
-    this.stringIsOk(params.crunchbasePassword, "Invalid crunchbase password");
-
     this.stringIsOk(params.spyfuDomain, "Invalid spyfu domain");
     this.stringIsOk(params.spyfuUsername, "Invalid spyfu username");
     this.stringIsOk(params.spyfuPassword, "Invalid spyfu password");
