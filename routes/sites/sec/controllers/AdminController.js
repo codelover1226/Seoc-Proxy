@@ -368,6 +368,7 @@ AdminController.prototype.servePhpScriptsPage = async function (wpSiteId, checkU
 
     const deploymentInfos = [
         {name: allServicesDetails.seocromom.name, serviceDomain: seocConfig.domain, pugVarName: "seocPhpCode"},
+        {name: allServicesDetails.crunchbase.name, serviceDomain: params.crunchbaseDomain, pugVarName: "crunchbasePhpCode"},
         {name: allServicesDetails.spyfu.name, serviceDomain: params.spyfuDomain, pugVarName: "spyfuPhpCode"},
         {name: allServicesDetails.onehourindexing.name, serviceDomain: params.onehourindexingDomain, pugVarName: "onehourindexingPhpCode"},
         {name: allServicesDetails.yourtext.name, serviceDomain: params.yourtextDomain, pugVarName: "yourtextPhpCode"},
@@ -691,6 +692,7 @@ contHelpers.copyServicesParamsFromOriginToTarget = function (targetedObject, ori
 
 contHelpers.injectMenuUrls = function (thisCont, params, targetedObjt) {
     const redirectUrl = 'https://' + thisCont.request.seocromom.adminDomain + adminUrls.REDIRECT_TO_SUB_DOMAINS_URL + '?endpoint=';
+    targetedObjt['crunchbaseUrl'] = redirectUrl + querystring.escape('https://' + params.crunchbaseDomain + allServicesDetails.crunchbase.homeUrl);
     targetedObjt['spyfuUrl'] = redirectUrl + querystring.escape('https://' + params.spyfuDomain + allServicesDetails.spyfu.homeUrl);
     targetedObjt['onehourindexingUrl'] = redirectUrl + querystring.escape('https://' + params.onehourindexingDomain + allServicesDetails.onehourindexing.homeUrl);
     targetedObjt['yourtextUrl'] = redirectUrl + querystring.escape('https://' + params.yourtextDomain + allServicesDetails.yourtext.homeUrl);
