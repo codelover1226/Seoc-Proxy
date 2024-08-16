@@ -58,29 +58,6 @@ allServices.spyfu = Object.create(Object.prototype, {
 });
 
 /**
- * This object contains details of the **spyfu** service which proxies requests of https://www.spyfu.com/.
- * @type {Object}
- */
-allServices.crunchbase = Object.create(Object.prototype, {
-    name: {
-        value: 'crunchbase',
-        writable: false
-    },
-    homeUrl: {
-        value: '/home',
-        writable: false
-    },
-    tokenName: {
-        value: 'crunchbaseCurrentToken',
-        writable: false
-    },
-    cookieName: {
-        value: 'SEOCROMOM-CRUNCHBASE-SESS',
-        writable: false
-    }
-});
-
-/**
  * This object contains details of the **onehourindexing** service which proxies requests of https://onehourindexing.co.
  * @type {Object}
  */
