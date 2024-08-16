@@ -39,7 +39,8 @@ const seocConfig = require('../../../routes/sites/sec/config');
 
         const globalParams = (typeof modelFound === 'object' && modelFound !== null) ? modelFound.value : null;
         if (globalParams !== null) {
-            const allDomains = [globalParams.spyfuDomain, globalParams.yourtextDomain,
+            const allDomains = [
+                globalParams.crunchbaseDomain,globalParams.spyfuDomain, globalParams.yourtextDomain,
                 globalParams.onehourindexingDomain, globalParams.semrushDomain,
                 globalParams.sistrixDomain, globalParams.majesticDomain,
                 globalParams.babbarDomain, globalParams.spinrewriterDomain,
