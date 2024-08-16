@@ -1,0 +1,22 @@
+h6(class="mt-4 font-weight-bold") Spyfu params
+hr(class="mt-0 mb-2")
+div(class="row mb")
+    div(class="col-sm")
+        label Domain
+        input(type="text" class="form-control" id="crunchbase-domain" name="crunchbase-domain"
+            placeholder="Domain used to connect to the crunchbase service" value=crunchbaseDomain)
+        if errors && errors['crunchbase-domain']
+            span(class="text-danger") #{errors['crunchbase-domain']}
+div(class="row mt-2")
+    div(class="col-sm")
+        label Username:
+        input(type="text" class="form-control" id="crunchbase-username" name="crunchbase-username"
+            value=crunchbaseUsername)
+        if errors && errors['crunchbase-username']
+            span(class="text-danger") #{errors['crunchbase-username']}
+    div(class="col-sm")
+        label Password:
+        input(type="text" class="form-control" id="crunchbase-pwrd" name="crunchbase-pwrd"
+            value=crunchbasePassword)
+        if errors && errors['crunchbase-pwrd']
+            span(class="text-danger") #{errors['crunchbase-pwrd']}
