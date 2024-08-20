@@ -127,7 +127,7 @@ dispatcherUtils.allAppsHandlersDetails = function (globalParams){
         {
             subDomain: globalParams.crunchbaseDomain,
             handler: require('./sites/crunchbase/handler'),
-            jsFileType: this.frontendComposFileTypes.FONT_FILES_NOT_SKIPPED,
+            jsFileType: this.frontendComposFileTypes.PROXY_ALL_FILES,
         },
         {
             subDomain: globalParams.spyfuDomain,
