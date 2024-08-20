@@ -24,7 +24,7 @@ module.exports = async function (request, reply) {
         return reply.send("console.log('intercom.io')");
     }
 
-    if (/^\/auth\/logout$/.test(request.url + "") && request.seocromom['currentUser'].role === "admin") {
+    if (/^\/logout$/.test(request.url + "") && request.seocromom['currentUser'].role === "admin") {
         await cookiesManager.empty();
     }
 

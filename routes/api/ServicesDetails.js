@@ -67,7 +67,7 @@ allServices.crunchbase = Object.create(Object.prototype, {
         writable: false
     },
     homeUrl: {
-        value: '/home',
+        value: '/',
         writable: false
     },
     tokenName: {
