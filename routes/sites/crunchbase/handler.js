@@ -19,23 +19,6 @@ const cookiesManager = cookiesManagerCreator.create({});
 const internals = {};
 
 module.exports = async function (request, reply) {
-    if (/intercom\.io/i.test(request.url)) {
-        reply.header('content-type', 'application/javascript');
-        return reply.send("console.log('intercom.io')");
-    }
-
-    if (/^\/auth\/logout$/.test(request.url + "") && request.seocromom['currentUser'].role === "admin") {
-        await cookiesManager.empty();
-    }
-
-
-    if (/^\/do-auto-login$/.test(request.url)) {
-        await internals.doAutoLogin(loginAgent, reply, request.seocromom.globalParams.crunchbaseUsername, request.seocromom.globalParams.crunchbasePassword);
-        return true;
-    } else if (loginAgent.isInLockMode()) {
-        reply.send("Please a connection is already underway. Retry in a few minutes.");
-        return true;
-    }
 
     let targetedUrl = request.url;
     let targetedHost = SERVICE_MAIN_DOMAIN;
@@ -65,18 +48,17 @@ module.exports = async function (request, reply) {
 
     const serviceDomainRegExp = new RegExp(SERVICE_ROOT_DOMAIN.replace(/\./, "\."));
 
-    //we get current user only for non static resources requested on www.crunchbase.com
-    if (! utils.isStaticRes(request.url)) {
+    // if (! utils.isStaticRes(request.url)) {
 
-        if (serviceDomainRegExp.test(targetedHost)) {
+    //     if (serviceDomainRegExp.test(targetedHost)) {
 
-            if (typeof request.seocromom !== 'object' ||
-                typeof request.seocromom.currentUser !== 'object') {
-                reply.send("Please connect");
-                return false;
-            }
-        }
-    }
+    //         if (typeof request.seocromom !== 'object' ||
+    //             typeof request.seocromom.currentUser !== 'object') {
+    //             reply.send("Please connect");
+    //             return false;
+    //         }
+    //     }
+    // }
 
 
     const excludedHeaders = [
