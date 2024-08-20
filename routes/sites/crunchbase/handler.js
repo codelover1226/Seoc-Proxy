@@ -11,7 +11,7 @@ const servicesDetails = require("../../api/ServicesDetails");
 const loginAgent = require("./LoginAgent").create();
 
 
-const SERVICE_MAIN_DOMAIN = 'www.crunchbase.com';
+const SERVICE_MAIN_DOMAIN = 'crunchbase.com';
 const SERVICE_ROOT_DOMAIN = 'crunchbase.com';
 const SERVICE_ROOT_URL = 'https://' + SERVICE_MAIN_DOMAIN;
 const COOKIES_FILE_PATH = __dirname + "/session/cookies.json";

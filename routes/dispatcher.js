@@ -28,10 +28,10 @@ module.exports = async function (request, reply) {
         if (request.headers['upgrade'] && request.headers['upgrade'] === 'websocket') {
             return reply.code(403).send('Not allowed');
         }
-
         const currentDomain = request.headers['host'];
 
         let globalParams = false;
+        
         request.seocromom = {
             requestUrl : (request.url + '').replace('__mcopLocation', 'location'),
             globalParams : globalParams,
@@ -41,6 +41,7 @@ module.exports = async function (request, reply) {
             MCOP_COMPONENTS_JS_FULL_PATH : __dirname + `${path.sep}api${path.sep}frontend-compos${path.sep}mcop-components-ab$012345.js`,
             MCOP_SERVICE_WORKER_JS_FULL_PATH : __dirname + `${path.sep}api${path.sep}frontend-compos${path.sep}mcop-sw-ab$012345.js`,
         };
+        await utils.writeToLog(request.seocromom);
 
         //On non-static content, non-temporary endpoints:
         if (! (request.url === adminUrls.TEMPORARY_ACCESS_URL ||

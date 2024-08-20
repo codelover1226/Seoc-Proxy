@@ -411,9 +411,9 @@ SharedController.prototype.processConnectionForm = function() {
             });
 
             crypHmac = crypto.createHmac('sha1', siteModel.appSecretKey);
-            const hashedCunchbase = crypHmac.update(Buffer.from(allServicesDetails.crunchbase.name, 'utf-8')).digest("hex");
+            const hashedCrunchbase = crypHmac.update(Buffer.from(allServicesDetails.crunchbase.name, 'utf-8')).digest("hex");
             servicesConnectionInfos.push({
-                hash: hashedCunchbase,
+                hash: hashedCrunchbase,
                 name: allServicesDetails.crunchbase.name
             });
 
@@ -702,7 +702,7 @@ SharedController.prototype.processConnectionForm = function() {
             const sentServiceHash = base64.decode(parsedData["service"], "base64");
 
             if (!(hashedSeocromom === sentServiceHash ||
-                hashedCunchbase === sentServiceHash ||
+                hashedCrunchbase === sentServiceHash ||
                 hashedSpyfu === sentServiceHash || hashedOneHourIndexing === sentServiceHash ||
                 hashedYourtext === sentServiceHash || hashedSemrush === sentServiceHash ||
                 hashedSistrix === sentServiceHash || hashedMajestic === sentServiceHash ||
