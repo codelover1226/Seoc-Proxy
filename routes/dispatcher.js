@@ -105,7 +105,7 @@ module.exports = async function (request, reply) {
                 await utils.writeToLog(`seocrom domain is : ${seocConfig.domain} and host header is ${currentDomain}`);
                 reply.code(500);
                 return reply.view("error.pug",
-                    { title: "Internal error", msg: "Oops! Invalid parameters were loaded." });
+                    { title: "Internal error", msg: "Oops! Invalid parameters were loaded.",currentDomain });
             }
 
             if (request.url === adminUrls.CONNECTION_URL &&
@@ -114,8 +114,8 @@ module.exports = async function (request, reply) {
                 await sharedController.connect();
             } else {
                 const pickedHandler = dispatcherUtils.pickHandler(currentDomain, globalParams);
-                await utils.writeToLog("currentDomain:")
-                await utils.writeToLog(currentDomain)
+                await utils.writeToLog("currentDomain:");
+                await utils.writeToLog(currentDomain);
                 if (! pickedHandler) {
                     reply.code(404);
                     return reply.view("error.pug",
