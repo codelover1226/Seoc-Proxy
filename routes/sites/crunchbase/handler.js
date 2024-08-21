@@ -232,7 +232,7 @@ module.exports = async function (request, reply) {
             temp = handlerHelpers.replacePostMessageAndLocation(temp);
             body = temp;
         } catch (error) {
-            await utils.writeToLog(request);
+            await utils.writeToLog( JSON.stringify(request));
             await utils.writeToLog(error);
         }
 
