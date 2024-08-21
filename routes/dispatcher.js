@@ -100,6 +100,7 @@ module.exports = async function (request, reply) {
         } else {
             if (globalParams === null) {
                 await utils.writeToLog("CurrentDomain:");
+                await utils.writeToLog("CurrentDomain:");
                 await utils.writeToLog(currentDomain);
                 await utils.writeToLog("Invalid global parameters.. Test Log and please check");
                 await utils.writeToLog(`seocrom domain is : ${seocConfig.domain} and host header is ${currentDomain}`);
