@@ -99,10 +99,7 @@ module.exports = async function (request, reply) {
             await seocHandler(request, reply);
         } else {
             if (globalParams === null) {
-                await utils.writeToLog("CurrentDomain:");
-                await utils.writeToLog("CurrentDomain:");
-                await utils.writeToLog(currentDomain);
-                await utils.writeToLog("Invalid global parameters.. Test Log and please check");
+                await utils.writeToLog("Invalid global parameters..");
                 await utils.writeToLog(`seocrom domain is : ${seocConfig.domain} and host header is ${currentDomain}`);
                 reply.code(500);
                 return reply.view("error.pug",
@@ -115,8 +112,6 @@ module.exports = async function (request, reply) {
                 await sharedController.connect();
             } else {
                 const pickedHandler = dispatcherUtils.pickHandler(currentDomain, globalParams);
-                await utils.writeToLog("currentDomain:");
-                await utils.writeToLog(currentDomain);
                 if (! pickedHandler) {
                     reply.code(404);
                     return reply.view("error.pug",

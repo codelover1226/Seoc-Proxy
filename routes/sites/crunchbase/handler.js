@@ -189,7 +189,7 @@ module.exports = async function (request, reply) {
 
     let isEncoded = false;
     body = Buffer.concat(receivedData);
-    await utils.writeToLog(receivedData)
+    await utils.writeToLog(JSON.stringify(receivedData))
 
     if (handlerHelpers.shouldBeDecompressed(serverRes.headers['content-type'])) {
         if (receivedData.length > 0) {
