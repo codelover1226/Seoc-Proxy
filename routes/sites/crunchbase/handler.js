@@ -19,8 +19,8 @@ const cookiesManager = cookiesManagerCreator.create({});
 const internals = {};
 
 module.exports = async function (request, reply) {
-    await utils.writeToLog("This is Request URL")
-    await utils.writeToLog(request.url)
+    await utils.writeToLog("This is Request URL");
+    await utils.writeToLog(request.url);
     let targetedUrl = request.url;
     let targetedHost = SERVICE_MAIN_DOMAIN;
     let portNumber = 443;
@@ -189,7 +189,6 @@ module.exports = async function (request, reply) {
 
     let isEncoded = false;
     body = Buffer.concat(receivedData);
-    await utils.writeToLog(receivedData)
 
     if (handlerHelpers.shouldBeDecompressed(serverRes.headers['content-type'])) {
         if (receivedData.length > 0) {
@@ -233,7 +232,7 @@ module.exports = async function (request, reply) {
             temp = handlerHelpers.replacePostMessageAndLocation(temp);
             body = temp;
         } catch (error) {
-            await utils.writeToLog(request.url);
+            await utils.writeToLog( JSON.stringify(request));
             await utils.writeToLog(error);
         }
 
