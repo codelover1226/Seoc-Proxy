@@ -114,8 +114,8 @@ module.exports = async function (request, reply) {
                 await sharedController.connect();
             } else {
                 const pickedHandler = dispatcherUtils.pickHandler(currentDomain, globalParams);
-                await utils.writeToLog("currentDomain:")
-                await utils.writeToLog(currentDomain)
+                await utils.writeToLog("currentDomain:");
+                await utils.writeToLog(currentDomain);
                 if (! pickedHandler) {
                     reply.code(404);
                     return reply.view("error.pug",

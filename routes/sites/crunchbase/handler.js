@@ -19,8 +19,8 @@ const cookiesManager = cookiesManagerCreator.create({});
 const internals = {};
 
 module.exports = async function (request, reply) {
-    await utils.writeToLog("This is Request URL")
-    await utils.writeToLog(request.url)
+    await utils.writeToLog("This is Request URL");
+    await utils.writeToLog(request.url);
     let targetedUrl = request.url;
     let targetedHost = SERVICE_MAIN_DOMAIN;
     let portNumber = 443;
