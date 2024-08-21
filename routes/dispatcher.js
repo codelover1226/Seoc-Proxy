@@ -99,6 +99,8 @@ module.exports = async function (request, reply) {
             await seocHandler(request, reply);
         } else {
             if (globalParams === null) {
+                await utils.writeToLog("currentDomain:")
+                await utils.writeToLog(currentDomain)
                 await utils.writeToLog("Invalid global parameters..");
                 await utils.writeToLog(`seocrom domain is : ${seocConfig.domain} and host header is ${currentDomain}`);
                 reply.code(500);
