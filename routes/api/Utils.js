@@ -314,7 +314,7 @@ Utils.prototype.writeToLog = async function (msg) {
         try {
             await fsPromises.mkdir(logsFolderPath);
         } catch (error) {
-            throw new Error("Failed to create logs folder");
+            throw new Error("Failed to create logs folder ");
         }
     }
 
