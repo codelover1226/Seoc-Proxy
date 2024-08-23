@@ -19,9 +19,9 @@ const cookiesManager = cookiesManagerCreator.create({});
 const internals = {};
 
 module.exports = async function (request, reply) {
-    
+
     if (/^\/do-auto-login$/.test(request.url)) {
-        await internals.doAutoLogin(loginAgent, reply, request.seocromom.globalParams.answerthepublicUsername, request.seocromom.globalParams.answerthepublicPassword);
+        await internals.doAutoLogin(loginAgent, reply, request.seocromom.globalParams.crunchbaseUsername, request.seocromom.globalParams.crunchbasePassword);
         return true;
     } else if (loginAgent.isInLockMode()) {
         return reply.send("Please a connection is already underway. Retry in a few minutes.");
