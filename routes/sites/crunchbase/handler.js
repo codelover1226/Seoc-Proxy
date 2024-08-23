@@ -57,17 +57,17 @@ module.exports = async function (request, reply) {
 
     const serviceDomainRegExp = new RegExp(SERVICE_ROOT_DOMAIN.replace(/\./, "\."));
 
-    // if (! utils.isStaticRes(request.url)) {
+    if (! utils.isStaticRes(request.url)) {
 
-    //     if (serviceDomainRegExp.test(targetedHost)) {
+        if (serviceDomainRegExp.test(targetedHost)) {
 
-    //         if (typeof request.seocromom !== 'object' ||
-    //             typeof request.seocromom.currentUser !== 'object') {
-    //             reply.send("Please connect");
-    //             return false;
-    //         }
-    //     }
-    // }
+            if (typeof request.seocromom !== 'object' ||
+                typeof request.seocromom.currentUser !== 'object') {
+                reply.send("Please connect");
+                return false;
+            }
+        }
+    }
 
 
     const excludedHeaders = [
