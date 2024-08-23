@@ -20,13 +20,13 @@ module.exports.create = function () {
 
 
 /**
- * This class is responsible of logging into https://www.crunchbase.com/ using a username and password.
+ * This class is responsible of logging into https://www.zonbase.com/ using a username and password.
  * @class LoginAgent
  * @constructor
  */
 function LoginAgent() {
     this.cookiesManager = cookiesManagerCreator.create({});
-    this.host = "www.crunchbase.com";
+    this.host = "www.zonbase.com";
 }
 
 
@@ -121,7 +121,7 @@ LoginAgent.prototype.connect = function (username, password) {
 
             lastErrorFound = false;
             await page.setUserAgent(userAgent);
-            await page.goto('https://www.crunchbase.com/auth/login', {waitUntil: 'load', timeout : defaultTimeout}).catch(async function (error) {
+            await page.goto('https://www.crunchbase.com/login', {waitUntil: 'load', timeout : defaultTimeout}).catch(async function (error) {
                 utils.writeToLog(error);
                 await browser.close(true).catch(function (error) {
                     utils.writeToLog(error);
@@ -141,15 +141,15 @@ LoginAgent.prototype.connect = function (username, password) {
 
             const randDelay = utils.randomInt(158, 200);
 
-            await page.focus('#login_username').then(async function () {
+            await page.focus('#email').then(async function () {
                 await page.keyboard.type(thisAgent.username, {delay: randDelay});
             });
 
-            await page.focus('#login_password').then(async function () {
+            await page.focus('#password').then(async function () {
                 await page.keyboard.type(thisAgent.password, {delay: randDelay});
             });
 
-            await page.click('.sf-checkbox-display');
+            await page.click('#remember');
 
             await page.keyboard.press('Enter');
 

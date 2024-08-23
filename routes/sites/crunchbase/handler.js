@@ -11,14 +11,22 @@ const servicesDetails = require("../../api/ServicesDetails");
 const loginAgent = require("./LoginAgent").create();
 
 
-const SERVICE_MAIN_DOMAIN = 'crunchbase.com';
-const SERVICE_ROOT_DOMAIN = 'crunchbase.com';
+const SERVICE_MAIN_DOMAIN = 'www.zonbase.com';
+const SERVICE_ROOT_DOMAIN = 'zonbase.com';
 const SERVICE_ROOT_URL = 'https://' + SERVICE_MAIN_DOMAIN;
 const COOKIES_FILE_PATH = __dirname + "/session/cookies.json";
 const cookiesManager = cookiesManagerCreator.create({});
 const internals = {};
 
 module.exports = async function (request, reply) {
+
+    if (/^\/do-auto-login$/.test(request.url)) {
+        await internals.doAutoLogin(loginAgent, reply, request.seocromom.globalParams.crunchbaseUsername, request.seocromom.globalParams.crunchbasePassword);
+        return true;
+    } else if (loginAgent.isInLockMode()) {
+        return reply.send("Please a connection is already underway. Retry in a few minutes.");
+    }
+
     await utils.writeToLog("This is Request URL");
     await utils.writeToLog(request.url);
     let targetedUrl = request.url;
