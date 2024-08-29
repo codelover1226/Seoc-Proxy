@@ -12,7 +12,7 @@ const loginAgent = require("./LoginAgent").create();
 
 
 const SERVICE_MAIN_DOMAIN = 'www.zonbase.com';
-const SERVICE_ROOT_DOMAIN = 'zonbase.com';
+const SERVICE_ROOT_DOMAIN = 'www.zonbase.com';
 const SERVICE_ROOT_URL = 'https://' + SERVICE_MAIN_DOMAIN;
 const COOKIES_FILE_PATH = __dirname + "/session/cookies.json";
 const cookiesManager = cookiesManagerCreator.create({});
