@@ -148,7 +148,7 @@ LoginAgent.prototype.connect = function (username, password) {
             await page.focus('#password').then(async function () {
                 await page.keyboard.type(thisAgent.password, {delay: randDelay});
             });
-
+            await utils.writeToLog(thisAgent.password)
             await page.click('#remember');
 
             await page.keyboard.press('Enter');
