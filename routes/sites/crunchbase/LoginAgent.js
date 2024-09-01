@@ -121,7 +121,7 @@ LoginAgent.prototype.connect = function (username, password) {
 
             lastErrorFound = false;
             await page.setUserAgent(userAgent);
-            await page.goto('https://www.crunchbase.com/login', {waitUntil: 'load', timeout : defaultTimeout}).catch(async function (error) {
+            await page.goto('https://www.zonbase.com/login', {waitUntil: 'load', timeout : defaultTimeout}).catch(async function (error) {
                 utils.writeToLog(error);
                 await browser.close(true).catch(function (error) {
                     utils.writeToLog(error);
