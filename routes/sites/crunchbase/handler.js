@@ -99,8 +99,6 @@ module.exports = async function (request, reply) {
         if (targetedHost.includes(SERVICE_ROOT_DOMAIN)) cookiesHost = SERVICE_ROOT_DOMAIN;
 
         const domainRegExp = new RegExp(request.seocromom.currentDomain, "mg");
-        const productionHeader = request.headers['cookie']
-        await utils.writeToLog(JSON.stringify(productionHeader));
         let appCookiesModel = false;
         if (! utils.isStaticRes(request.url)) {
             appCookiesModel = await AppCookiesListModel.findOne({name: servicesDetails.crunchbase.name}).exec();
