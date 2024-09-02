@@ -183,7 +183,7 @@ LoginAgent.prototype.connect = function (username, password) {
             //     reject("Invalid logins.");
             //     return false;
             // } else {
-                await page.waitForTimeout(2000);
+                // await page.waitForTimeout(2000);
                 const rawCookies = await page.cookies();
 
                 if (await thisAgent.saveSessionCookie(rawCookies)) {
