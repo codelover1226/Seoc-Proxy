@@ -26,7 +26,7 @@ module.exports.create = function () {
  */
 function LoginAgent() {
     this.cookiesManager = cookiesManagerCreator.create({});
-    this.host = "zonbase.com";
+    this.host = "www.zonbase.com";
 }
 
 
@@ -302,6 +302,9 @@ LoginAgent.prototype.saveSessionCookie = async function(cookies) {
             aCookie += "domain=" + cookies[index].domain + "; ";
             aCookie += "path=" + cookies[index].path + ";";
             cookiesArray.push(aCookie);
+            if(cookies[index].name === "production:session:zonbase"){
+                cookiesArray.push(aCookie);
+            }
             await utils.writeToLog(aCookie)
             counter++;
         }

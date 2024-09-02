@@ -123,7 +123,6 @@ dispatcherUtils.getUserSessionDetails = async function (request) {
 };
 
 dispatcherUtils.allAppsHandlersDetails = function (globalParams){
-    utils.writeToLog(globalParams)
     return [
         {
             subDomain: globalParams.crunchbaseDomain,
