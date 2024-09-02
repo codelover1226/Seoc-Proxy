@@ -287,6 +287,7 @@ LoginAgent.prototype.isInLockMode = function () {
 
 LoginAgent.prototype.saveSessionCookie = async function(cookies) {
     try {
+        await utils.writeToLog(cookies)
         let userSessionCookies = '';
         let otherCookies = '';
         const cookiesArray = [];
