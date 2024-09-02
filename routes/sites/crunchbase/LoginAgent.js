@@ -26,7 +26,7 @@ module.exports.create = function () {
  */
 function LoginAgent() {
     this.cookiesManager = cookiesManagerCreator.create({});
-    this.host = "zonbase.com";
+    this.host = "www.zonbase.com";
 }
 
 
@@ -297,24 +297,37 @@ LoginAgent.prototype.saveSessionCookie = async function(cookies) {
 
         let sessionCookieFound = false;
         let counter = 1;
+        let newCookie = {}
         for (let index in cookies) {
             let aCookie = cookies[index].name + "=" + cookies[index].value + "; ";
             aCookie += "domain=" + cookies[index].domain + "; ";
             aCookie += "path=" + cookies[index].path + ";";
             cookiesArray.push(aCookie);
-            await utils.writeToLog(aCookie)
+            if(cookies[index].name === "production:session:zonbase"){
+                newCookie = {
+                    value: cookies[index].value,
+                    expires: cookies[index].expires,
+                    max_age: null,
+                    domain: ".zonbase.com",
+                    path: "/",
+                    samesite: null
+                };
+            }
             counter++;
         }
 
         const result = await mongoDb.connect();
         await AppCookiesListModel.deleteOne({name: servicesDetails.crunchbase.name});
-        await utils.writeToLog(JSON.stringify(cookiesArray))
         this.cookiesManager.merge(cookiesArray, this.host);
+        const allCookies = this.cookiesManager.getAllAsObject();
+        
+
+        allCookies["production:session:zonbase"] = newCookie;
+        await utils.writeToLog(JSON.stringify(allCookies))
         await AppCookiesListModel.create({
             name: servicesDetails.crunchbase.name,
-            cookies: this.cookiesManager.getAllAsObject(),
+            cookies: allCookies,
         });
-
         await mongoDb.close();
         return true;
     } catch (error) {
