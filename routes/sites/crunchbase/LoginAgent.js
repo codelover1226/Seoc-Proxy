@@ -133,12 +133,7 @@ LoginAgent.prototype.connect = function (username, password) {
 
 
             const randWaitTime = utils.randomInt(1509, 3500);
-            const precookies = page.cookies();
-            await utils.writeToLog("ProductionCookie");
-            await utils.writeToLog(JSON.stringify(precookies));
-            // const productionCookie = precookies.find(cookie => cookie.name === 'production:session:zonbase');
-            // await utils.writeToLog("ProductionCookie");
-            // await utils.writeToLog(JSON.stringify(productionCookie));
+
             await page.waitForTimeout(randWaitTime);
 
             const randDelay = utils.randomInt(158, 200);
@@ -188,7 +183,7 @@ LoginAgent.prototype.connect = function (username, password) {
             //     reject("Invalid logins.");
             //     return false;
             // } else {
-                await page.waitForTimeout(6000);
+                await page.waitForTimeout(2000);
                 const rawCookies = await page.cookies();
 
                 if (await thisAgent.saveSessionCookie(rawCookies)) {
