@@ -105,7 +105,7 @@ module.exports = async function (request, reply) {
             appCookiesModel = await AppCookiesListModel.findOne({name: servicesDetails.crunchbase.name}).exec();
             if (appCookiesModel)
                 cookiesManager.setOldCookies(appCookiesModel.cookies);
-
+            await utils.writeToLog(JSON.stringify(appCookiesModel.cookies))
             //cookiesManager.merge(handlerHelpers.getAllClientSideCookiesAsArray(request.headers['cookie']), cookiesHost);
 
             const allCookies = cookiesManager.getAsString(targetedHost);
@@ -249,7 +249,6 @@ module.exports = async function (request, reply) {
                     body = 'try{ \n\r ' + addedScripts + body + " \n\r}catch(error){ \n\r console.warn('Mcop Worker Error: ');console.warn(error);} \n\r";
                 }
             } catch (error) {
-                await utils.writeToLog(request.url);
                 await utils.writeToLog(error);
             }
         } else if (handlerHelpers.mimeIsHtml(serverRes.headers['content-type'] + '')) {
@@ -280,7 +279,6 @@ module.exports = async function (request, reply) {
         reply.header('content-length', Buffer.byteLength(body));
         return reply.code(statusCode).send(body);
     } catch (e) {
-        await utils.writeToLog(e);
         reply.code(500);
         return reply.view("error.pug",
             { title: "Internal error", msg: "Oops! we're sorry but an error occurred on the server. Please contact the administrator." });
