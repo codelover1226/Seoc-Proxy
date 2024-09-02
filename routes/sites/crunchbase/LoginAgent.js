@@ -171,7 +171,7 @@ LoginAgent.prototype.connect = function (username, password) {
 
             await utils.writeToLog('click Submit Btn')
 
-            // await page.waitForTimeout(1500);
+            await page.waitForTimeout(500);
 
             lastErrorFound = false;
 
