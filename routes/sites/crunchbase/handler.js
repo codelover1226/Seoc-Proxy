@@ -24,13 +24,14 @@ module.exports = async function (request, reply) {
     //await utils.writeToLog(request.url)
     try {
 
-        // if (/^\/do-auto-login$/.test(request.url)) {
-        //     await internals.doAutoLogin(loginAgent, reply, request.seocromom.globalParams.crunchbaseUsername, request.seocromom.globalParams.crunchbasePassword);
-        //     return true;
-        // } else if (loginAgent.isInLockMode()) {
-        //     return reply.send("Please a connection is already underway. Retry in a few minutes.");
-        // }
-        await utils.writeToLog(request.cookie.XSRF-TOKEN? request.cookie.XSRF-TOKEN : "This is XSRF_TOKEN")
+        if (/^\/do-auto-login$/.test(request.url)) {
+            await internals.doAutoLogin(loginAgent, reply, request.seocromom.globalParams.crunchbaseUsername, request.seocromom.globalParams.crunchbasePassword);
+            return true;
+        } else if (loginAgent.isInLockMode()) {
+            return reply.send("Please a connection is already underway. Retry in a few minutes.");
+        }
+        // const xsrf_token = req.csrfToken()
+        // await utils.writeToLog(xsrf_token)
         let targetedUrl = request.url;
         let targetedHost = SERVICE_MAIN_DOMAIN;
         let portNumber = 443;
@@ -260,9 +261,9 @@ module.exports = async function (request, reply) {
                     return reply.code(302).send("Redirecting...");
                 }
 
-                // if ((request.url + '').includes('/login') && statusCode === 200 && targetedHost.includes(SERVICE_MAIN_DOMAIN)) {
-                //     return reply.view("auto-login.pug");
-                // }
+                if ((request.url + '').includes('/login') && statusCode === 200 && targetedHost.includes(SERVICE_MAIN_DOMAIN)) {
+                    return reply.view("auto-login.pug");
+                }
 
                 body = handlerHelpers.injectJsScriptInHead(body, "https://" + request.seocromom.currentDomain + "/mcop-compos123456789.js");
                 body = handlerHelpers.injectPageBase(body, requestFullUrl, realFullUrl);

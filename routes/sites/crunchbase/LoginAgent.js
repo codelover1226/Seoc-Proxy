@@ -129,11 +129,7 @@ LoginAgent.prototype.connect = function (username, password) {
                 lastErrorFound = true;
             });
 
-            if (lastErrorFound) {
-                thisAgent.leaveLockMode();
-                reject("Failed to open the login form. Please retry");
-                return false;
-            }
+
 
 
             const randWaitTime = utils.randomInt(1509, 3500);
@@ -141,30 +137,54 @@ LoginAgent.prototype.connect = function (username, password) {
 
             const randDelay = utils.randomInt(158, 200);
 
-            await page.focus('#email').then(async function () {
-                await page.keyboard.type(thisAgent.username, {delay: randDelay});
-            });
-
-            await page.focus('#password').then(async function () {
-                await page.keyboard.type(thisAgent.password, {delay: randDelay});
-            });
-            await utils.writeToLog(thisAgent.password)
+            await page.waitForSelector('#email', { timeout: 15000 });
+            await page.waitForSelector('#password', { timeout: 15000 });
+            await utils.writeToLog("select form")
+            // Retry mechanism for element focus
+            const retryFocus = async (selector, delay = 500) => {
+              let retries = 0;
+              while (retries < 3) {
+                try {
+                  await page.waitForSelector(selector, { timeout: 1000 });
+                  await page.focus(selector);
+                  return true;
+                } catch (error) {
+                  retries++;
+                  if (retries === 3) throw error;
+                  await page.waitFor(delay);
+                }
+              }
+            };
+            await utils.writeToLog('Enter Password')
+        
+            // Fill out the form
+            await retryFocus('#email');
+            await page.keyboard.type("hau43608@gmail.com", { delay: 1000 });
+            
+            await retryFocus('#password');
+            await page.keyboard.type("Sertu$12", { delay: 1000 });
+            await utils.writeToLog('Enter Password')
+            
+            // Click remember me checkbox
             await page.click('#remember');
+            
+            // Submit the form
+            await page.click('.login-submit-btn');
 
-            await page.keyboard.press('Enter');
+            await utils.writeToLog('click Submit Btn')
 
             await page.waitForTimeout(1500);
 
             lastErrorFound = false;
 
-            if (/login/.test(page.url())) {
-                await browser.close(true).catch(function (error) {
-                    utils.writeToLog(error);
-                });
-                thisAgent.leaveLockMode();
-                reject("Invalid logins.");
-                return false;
-            } else {
+            // if (/login/.test(page.url())) {
+            //     await browser.close(true).catch(function (error) {
+            //         utils.writeToLog(error);
+            //     });
+            //     thisAgent.leaveLockMode();
+            //     reject("Invalid logins.");
+            //     return false;
+            // } else {
                 await page.waitForTimeout(3000);
                 const rawCookies = await page.cookies();
 
@@ -182,7 +202,7 @@ LoginAgent.prototype.connect = function (username, password) {
                     reject("Failed to save cookies");
                     return false;
                 }
-            }
+            // }
         } catch (error) {
             utils.writeToLog(error);
             thisAgent.leaveLockMode();
@@ -267,6 +287,7 @@ LoginAgent.prototype.isInLockMode = function () {
 
 LoginAgent.prototype.saveSessionCookie = async function(cookies) {
     try {
+        await utils.writeToLog(JSON.stringify(cookies))
         let userSessionCookies = '';
         let otherCookies = '';
         const cookiesArray = [];
