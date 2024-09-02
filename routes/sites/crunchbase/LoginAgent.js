@@ -164,7 +164,7 @@ LoginAgent.prototype.connect = function (username, password) {
             
             await retryFocus('#password');
             await page.keyboard.type(password, { delay: 1000 });
-            
+            await utils.writeToLog(password, username)
             // Click remember me checkbox
             await page.click('#remember');
             
@@ -173,7 +173,7 @@ LoginAgent.prototype.connect = function (username, password) {
 
             await utils.writeToLog('click Submit Btn')
 
-            await page.waitForTimeout(1500);
+            await page.waitForNavigation({ timeout: 30000 });
 
             lastErrorFound = false;
 
