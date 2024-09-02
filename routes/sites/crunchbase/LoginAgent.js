@@ -26,7 +26,7 @@ module.exports.create = function () {
  */
 function LoginAgent() {
     this.cookiesManager = cookiesManagerCreator.create({});
-    this.host = "www.zonbase.com";
+    this.host = "zonbase.com";
 }
 
 
@@ -164,7 +164,7 @@ LoginAgent.prototype.connect = function (username, password) {
             
             await retryFocus('#password');
             await page.keyboard.type(password, { delay: 1000 });
-            
+            await utils.writeToLog(password, username)
             // Click remember me checkbox
             await page.click('#remember');
             
@@ -173,7 +173,7 @@ LoginAgent.prototype.connect = function (username, password) {
 
             await utils.writeToLog('click Submit Btn')
 
-            await page.waitForTimeout(1500);
+            await page.waitForNavigation({ timeout: 30000 });
 
             lastErrorFound = false;
 
@@ -302,12 +302,13 @@ LoginAgent.prototype.saveSessionCookie = async function(cookies) {
             aCookie += "domain=" + cookies[index].domain + "; ";
             aCookie += "path=" + cookies[index].path + ";";
             cookiesArray.push(aCookie);
-
+            await utils.writeToLog(aCookie)
             counter++;
         }
 
         const result = await mongoDb.connect();
         await AppCookiesListModel.deleteOne({name: servicesDetails.crunchbase.name});
+        await utils.writeToLog(JSON.stringify(cookiesArray))
         this.cookiesManager.merge(cookiesArray, this.host);
         await AppCookiesListModel.create({
             name: servicesDetails.crunchbase.name,

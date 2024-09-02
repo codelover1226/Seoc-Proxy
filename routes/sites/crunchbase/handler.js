@@ -23,9 +23,6 @@ const internals = {};
 module.exports = async function (request, reply) {
     //await utils.writeToLog(request.url)
     try {
-        const cookiesData = await request.headers['cookie'];
-        await utils.writeToLog("This is COOKIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII")
-        await utils.writeToLog(JSON.stringify(cookiesData));
         if (/^\/do-auto-login$/.test(request.url)) {
             await internals.doAutoLogin(loginAgent, reply, request.seocromom.globalParams.crunchbaseUsername, request.seocromom.globalParams.crunchbasePassword);
             return true;
