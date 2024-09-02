@@ -63,7 +63,7 @@ allServices.spyfu = Object.create(Object.prototype, {
  */
 allServices.crunchbase = Object.create(Object.prototype, {
     name: {
-        value: 'zonbase',
+        value: 'crunchbase',
         writable: false
     },
     homeUrl: {
@@ -71,11 +71,11 @@ allServices.crunchbase = Object.create(Object.prototype, {
         writable: false
     },
     tokenName: {
-        value: 'zonbaseCurrentToken',
+        value: 'crunchbaseCurrentToken',
         writable: false
     },
     cookieName: {
-        value: 'SEOCROMOM-ZONBASE-SESS',
+        value: 'SEOCROMOM-CRUNCHBASE-SESS',
         writable: false
     }
 });
