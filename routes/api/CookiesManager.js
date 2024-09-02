@@ -185,17 +185,12 @@ CookiesManager.prototype.extract = function(rawCookies) {
  * @method merge
  * @returns {boolean}
  */
-CookiesManager.prototype.merge = async  function (rawCookies, defaultDomain) {
+CookiesManager.prototype.merge = function (rawCookies, defaultDomain) {
     if (typeof defaultDomain !== 'string' || defaultDomain.length === 0)
         throw new Error('Default domain is missing');
 
     const newCookies = this.extract(rawCookies);
-    await utils.writeToLog("RawCookies")
-    await utils.writeToLog(JSON.stringify(newCookies));
     const objtEntries = Object.entries(newCookies);
-
-    await utils.writeToLog("ObjectEntries");
-    await utils.writeToLog(JSON.stringify(objtEntries));
 
     if (objtEntries.length === 0)
         return false;

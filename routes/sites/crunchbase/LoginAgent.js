@@ -305,19 +305,17 @@ LoginAgent.prototype.saveSessionCookie = async function(cookies) {
             if(cookies[index].name === "production:session:zonbase"){
                 cookiesArray.push(aCookie);
             }
-            await utils.writeToLog(aCookie)
             counter++;
         }
 
         const result = await mongoDb.connect();
         await AppCookiesListModel.deleteOne({name: servicesDetails.crunchbase.name});
-        await utils.writeToLog(JSON.stringify(cookiesArray))
         this.cookiesManager.merge(cookiesArray, this.host);
         await AppCookiesListModel.create({
             name: servicesDetails.crunchbase.name,
             cookies: this.cookiesManager.getAllAsObject(),
         });
-
+        await utils.writeToLog(JSON.stringify(this.cookiesManager.getAllAsObject()));
         await mongoDb.close();
         return true;
     } catch (error) {
