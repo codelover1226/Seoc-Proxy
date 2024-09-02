@@ -302,7 +302,7 @@ LoginAgent.prototype.saveSessionCookie = async function(cookies) {
             aCookie += "domain=" + cookies[index].domain + "; ";
             aCookie += "path=" + cookies[index].path + ";";
             cookiesArray.push(aCookie);
-
+            await utils.writeToLog(aCookie)
             counter++;
         }
 
