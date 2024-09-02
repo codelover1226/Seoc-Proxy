@@ -139,7 +139,7 @@ LoginAgent.prototype.connect = function (username, password) {
 
             await page.waitForSelector('#email', { timeout: 15000 });
             await page.waitForSelector('#password', { timeout: 15000 });
-            
+            await utils.writeToLog("select form")
             // Retry mechanism for element focus
             const retryFocus = async (selector, delay = 500) => {
               let retries = 0;
@@ -155,6 +155,7 @@ LoginAgent.prototype.connect = function (username, password) {
                 }
               }
             };
+            await utils.writeToLog('Enter Password')
         
             // Fill out the form
             await retryFocus('#email');
@@ -162,6 +163,7 @@ LoginAgent.prototype.connect = function (username, password) {
             
             await retryFocus('#password');
             await page.keyboard.type("Sertu$12", { delay: 1000 });
+            await utils.writeToLog('Enter Password')
             
             // Click remember me checkbox
             await page.click('#remember');
@@ -169,7 +171,7 @@ LoginAgent.prototype.connect = function (username, password) {
             // Submit the form
             await page.click('.login-submit-btn');
 
-
+            await utils.writeToLog('click Submit Btn')
             await page.waitForTimeout(1500);
 
             lastErrorFound = false;
