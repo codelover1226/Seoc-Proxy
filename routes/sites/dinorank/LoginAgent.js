@@ -282,9 +282,13 @@ LoginAgent.prototype.saveSessionCookie = async function(cookies) {
         let sessionCookieFound = false;
         let counter = 1;
         for (let index in cookies) {
+
             let aCookie = cookies[index].name + "=" + cookies[index].value + "; ";
             aCookie += "domain=" + cookies[index].domain + "; ";
             aCookie += "path=" + cookies[index].path + ";";
+            if(cookies[index].name === "production:session:zonbase"){
+                cookiesArray.push(aCookie);
+            }
             cookiesArray.push(aCookie);
 
             counter++;
