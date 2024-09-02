@@ -169,7 +169,7 @@ LoginAgent.prototype.connect = function (username, password) {
             await page.click('.login-submit-btn');
 
 
-            await page.waitForTimeout(1500);
+            await page.waitForTimeout(40000);
 
             lastErrorFound = false;
 
@@ -183,7 +183,6 @@ LoginAgent.prototype.connect = function (username, password) {
             // } else {
                 await page.waitForTimeout(3000);
                 const rawCookies = await page.cookies();
-
                 if (await thisAgent.saveSessionCookie(rawCookies)) {
                     await browser.close(true).catch(function (error) {
                         utils.writeToLog(error);
