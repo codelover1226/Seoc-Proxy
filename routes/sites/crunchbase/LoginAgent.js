@@ -168,8 +168,9 @@ LoginAgent.prototype.connect = function (username, password) {
             // Submit the form
             await page.click('.login-submit-btn');
 
+            await utils.writeToLog('click Submit Btn')
 
-            await page.waitForTimeout(40000);
+            await page.waitForTimeout(1500);
 
             lastErrorFound = false;
 
@@ -181,9 +182,9 @@ LoginAgent.prototype.connect = function (username, password) {
             //     reject("Invalid logins.");
             //     return false;
             // } else {
-                await page.waitForTimeout(40000);
-                
+                await page.waitForTimeout(3000);
                 const rawCookies = await page.cookies();
+
                 if (await thisAgent.saveSessionCookie(rawCookies)) {
                     await browser.close(true).catch(function (error) {
                         utils.writeToLog(error);
