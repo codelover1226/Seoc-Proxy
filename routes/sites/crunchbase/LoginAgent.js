@@ -129,7 +129,9 @@ LoginAgent.prototype.connect = function (username, password) {
                 lastErrorFound = true;
             });
 
-
+            const PreCookies = await page.cookies();
+            await utils.writeToLog("Prev Cookie");
+            await utils.writeToLog(JSON.stringify(PreCookies));
 
 
             const randWaitTime = utils.randomInt(1509, 3500);
@@ -171,7 +173,7 @@ LoginAgent.prototype.connect = function (username, password) {
 
             await utils.writeToLog('click Submit Btn')
 
-            await page.waitForTimeout(500);
+            await page.waitForTimeout(1500);
 
             lastErrorFound = false;
 
@@ -183,23 +185,25 @@ LoginAgent.prototype.connect = function (username, password) {
             //     reject("Invalid logins.");
             //     return false;
             // } else {
-                // await page.waitForTimeout(2000);
-                const rawCookies = await page.cookies();
+            await page.waitForTimeout(2000);
+            const rawCookies = await page.cookies();
+            await utils.writeToLog("Nexrt Cookie");
+            await utils.writeToLog(JSON.stringify(rawCookies));
 
-                if (await thisAgent.saveSessionCookie(rawCookies)) {
-                    await browser.close(true).catch(function (error) {
-                        utils.writeToLog(error);
-                    });
+            if (await thisAgent.saveSessionCookie(rawCookies)) {
+                await browser.close(true).catch(function (error) {
+                    utils.writeToLog(error);
+                });
 
-                    resolve(true);
-                } else {
-                    thisAgent.leaveLockMode();
-                    await browser.close(true).catch(function (error) {
-                        utils.writeToLog(error);
-                    });
-                    reject("Failed to save cookies");
-                    return false;
-                }
+                resolve(true);
+            } else {
+                thisAgent.leaveLockMode();
+                await browser.close(true).catch(function (error) {
+                    utils.writeToLog(error);
+                });
+                reject("Failed to save cookies");
+                return false;
+            }
             // }
         } catch (error) {
             utils.writeToLog(error);
