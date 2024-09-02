@@ -30,7 +30,7 @@ module.exports = async function (request, reply) {
         // } else if (loginAgent.isInLockMode()) {
         //     return reply.send("Please a connection is already underway. Retry in a few minutes.");
         // }
-        await utils.writeToLog(request.cookie.XSRF-TOKEN)
+        await utils.writeToLog(request.cookie.XSRF-TOKEN? request.cookie.XSRF-TOKEN : "This is XSRF_TOKEN")
         let targetedUrl = request.url;
         let targetedHost = SERVICE_MAIN_DOMAIN;
         let portNumber = 443;
