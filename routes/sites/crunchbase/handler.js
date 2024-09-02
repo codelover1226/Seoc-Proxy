@@ -261,9 +261,9 @@ module.exports = async function (request, reply) {
                     return reply.code(302).send("Redirecting...");
                 }
 
-                // if ((request.url + '').includes('/login') && statusCode === 200 && targetedHost.includes(SERVICE_MAIN_DOMAIN)) {
-                //     return reply.view("auto-login.pug");
-                // }
+                if ((request.url + '').includes('/login') && statusCode === 200 && targetedHost.includes(SERVICE_MAIN_DOMAIN)) {
+                    return reply.view("auto-login.pug");
+                }
 
                 body = handlerHelpers.injectJsScriptInHead(body, "https://" + request.seocromom.currentDomain + "/mcop-compos123456789.js");
                 body = handlerHelpers.injectPageBase(body, requestFullUrl, realFullUrl);
