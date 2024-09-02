@@ -133,6 +133,10 @@ LoginAgent.prototype.connect = function (username, password) {
 
 
             const randWaitTime = utils.randomInt(1509, 3500);
+            const precookies = page.cookies();
+            const productionCookie = precookies.find(cookie => cookie.name === 'production:session:zonbase');
+            await utils.writeToLog("ProductionCookie");
+            await utils.writeToLog(JSON.stringify(productionCookie));
             await page.waitForTimeout(randWaitTime);
 
             const randDelay = utils.randomInt(158, 200);
