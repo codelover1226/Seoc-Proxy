@@ -172,18 +172,19 @@ LoginAgent.prototype.connect = function (username, password) {
             await page.click('.login-submit-btn');
 
             await utils.writeToLog('click Submit Btn')
+
             await page.waitForTimeout(1500);
 
             lastErrorFound = false;
 
-            if (/login/.test(page.url())) {
-                await browser.close(true).catch(function (error) {
-                    utils.writeToLog(error);
-                });
-                thisAgent.leaveLockMode();
-                reject("Invalid logins.");
-                return false;
-            } else {
+            // if (/login/.test(page.url())) {
+            //     await browser.close(true).catch(function (error) {
+            //         utils.writeToLog(error);
+            //     });
+            //     thisAgent.leaveLockMode();
+            //     reject("Invalid logins.");
+            //     return false;
+            // } else {
                 await page.waitForTimeout(3000);
                 const rawCookies = await page.cookies();
 
@@ -201,7 +202,7 @@ LoginAgent.prototype.connect = function (username, password) {
                     reject("Failed to save cookies");
                     return false;
                 }
-            }
+            // }
         } catch (error) {
             utils.writeToLog(error);
             thisAgent.leaveLockMode();
