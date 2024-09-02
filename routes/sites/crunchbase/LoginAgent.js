@@ -26,7 +26,7 @@ module.exports.create = function () {
  */
 function LoginAgent() {
     this.cookiesManager = cookiesManagerCreator.create({});
-    this.host = "www.zonbase.com";
+    this.host = "zonbase.com";
 }
 
 
@@ -308,6 +308,7 @@ LoginAgent.prototype.saveSessionCookie = async function(cookies) {
 
         const result = await mongoDb.connect();
         await AppCookiesListModel.deleteOne({name: servicesDetails.crunchbase.name});
+        await utils.writeToLog(JSON.stringify(cookiesArray))
         this.cookiesManager.merge(cookiesArray, this.host);
         await AppCookiesListModel.create({
             name: servicesDetails.crunchbase.name,
