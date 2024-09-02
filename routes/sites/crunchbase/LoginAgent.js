@@ -181,8 +181,8 @@ LoginAgent.prototype.connect = function (username, password) {
             //     reject("Invalid logins.");
             //     return false;
             // } else {
-                await page.waitForNavigation({ timeout: 30000 });
-
+                await page.waitForTimeout({ timeout: 30000 });
+                
                 const rawCookies = await page.cookies();
                 if (await thisAgent.saveSessionCookie(rawCookies)) {
                     await browser.close(true).catch(function (error) {
