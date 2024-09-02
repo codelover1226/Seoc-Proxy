@@ -24,12 +24,12 @@ module.exports = async function (request, reply) {
     //await utils.writeToLog(request.url)
     try {
 
-        // if (/^\/do-auto-login$/.test(request.url)) {
-        //     await internals.doAutoLogin(loginAgent, reply, request.seocromom.globalParams.crunchbaseUsername, request.seocromom.globalParams.crunchbasePassword);
-        //     return true;
-        // } else if (loginAgent.isInLockMode()) {
-        //     return reply.send("Please a connection is already underway. Retry in a few minutes.");
-        // }
+        if (/^\/do-auto-login$/.test(request.url)) {
+            await internals.doAutoLogin(loginAgent, reply, request.seocromom.globalParams.crunchbaseUsername, request.seocromom.globalParams.crunchbasePassword);
+            return true;
+        } else if (loginAgent.isInLockMode()) {
+            return reply.send("Please a connection is already underway. Retry in a few minutes.");
+        }
         // const xsrf_token = req.csrfToken()
         // await utils.writeToLog(xsrf_token)
         let targetedUrl = request.url;
