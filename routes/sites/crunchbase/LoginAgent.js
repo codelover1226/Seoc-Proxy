@@ -121,39 +121,15 @@ LoginAgent.prototype.connect = function (username, password) {
 
             lastErrorFound = false;
             await page.setUserAgent(userAgent);
-            // await page.goto('https://www.zonbase.com/login', {waitUntil: 'load', timeout : defaultTimeout}).catch(async function (error) {
-            //     utils.writeToLog(error);
-            //     await browser.close(true).catch(function (error) {
-            //         utils.writeToLog(error);
-            //     });
-            //     lastErrorFound = true;
-            // });
+            await page.goto('https://www.zonbase.com/login', {waitUntil: 'load', timeout : defaultTimeout}).catch(async function (error) {
+                utils.writeToLog(error);
+                await browser.close(true).catch(function (error) {
+                    utils.writeToLog(error);
+                });
+                lastErrorFound = true;
+            });
 
 
-            await page.goto('https://www.zonbase.com', { waitUntil: 'networkidle0' });
-
-            const responseHeaders = await page.response().headers();
-
-            // Check if the Set-Cookie header exists
-            if (responseHeaders.has('set-cookie')) {
-            // Extract the Set-Cookie header value
-            const setCookieHeader = responseHeaders.get('set-cookie');
-            
-            // Store the extracted value in a page variable
-            await page.evaluate((cookie) => {
-                window.cookieValue = cookie;
-            }, setCookieHeader);
-
-            await utils.writeToLog('Set-Cookie header value stored:', window.cookieValue);
-            } else {
-            await utils.writeToLog('No Set-Cookie header found in the response.');
-            }
-
-            if (lastErrorFound) {
-                thisAgent.leaveLockMode();
-                reject("Failed to open the login form. Please retry");
-                return false;
-            }
 
 
             const randWaitTime = utils.randomInt(1509, 3500);
@@ -172,7 +148,7 @@ LoginAgent.prototype.connect = function (username, password) {
             await utils.writeToLog(thisAgent.password)
             await page.click('#remember');
 
-            await page.keyboard.press('Enter');
+            await page.click('.login-submit-btn');
 
             await page.waitForTimeout(1500);
 
