@@ -137,18 +137,38 @@ LoginAgent.prototype.connect = function (username, password) {
 
             const randDelay = utils.randomInt(158, 200);
 
-            await page.focus('#email').then(async function () {
-                await page.keyboard.type(thisAgent.username, {delay: randDelay});
-            });
-
-            await page.focus('#password').then(async function () {
-                await page.keyboard.type(thisAgent.password, {delay: randDelay});
-            });
+            await page.waitForSelector('#email', { timeout: 15000 });
+            await page.waitForSelector('#password', { timeout: 15000 });
             
-            await utils.writeToLog(thisAgent.password)
+            // Retry mechanism for element focus
+            const retryFocus = async (selector, delay = 500) => {
+              let retries = 0;
+              while (retries < 3) {
+                try {
+                  await page.waitForSelector(selector, { timeout: 1000 });
+                  await page.focus(selector);
+                  return true;
+                } catch (error) {
+                  retries++;
+                  if (retries === 3) throw error;
+                  await page.waitFor(delay);
+                }
+              }
+            };
+        
+            // Fill out the form
+            await retryFocus('#email');
+            await page.keyboard.type("hau43608@gmail.com", { delay: 1000 });
+            
+            await retryFocus('#password');
+            await page.keyboard.type("Sertu$12", { delay: 1000 });
+            
+            // Click remember me checkbox
             await page.click('#remember');
-
+            
+            // Submit the form
             await page.click('.login-submit-btn');
+
 
             await page.waitForTimeout(1500);
 
