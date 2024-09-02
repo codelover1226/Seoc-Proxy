@@ -160,10 +160,10 @@ LoginAgent.prototype.connect = function (username, password) {
         
             // Fill out the form
             await retryFocus('#email');
-            await page.keyboard.type("hau43608@gmail.com", { delay: 1000 });
+            await page.keyboard.type(username, { delay: 1000 });
             
             await retryFocus('#password');
-            await page.keyboard.type("Sertu$12", { delay: 1000 });
+            await page.keyboard.type(password, { delay: 1000 });
             
             // Click remember me checkbox
             await page.click('#remember');
