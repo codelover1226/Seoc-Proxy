@@ -99,7 +99,8 @@ module.exports = async function (request, reply) {
         if (targetedHost.includes(SERVICE_ROOT_DOMAIN)) cookiesHost = SERVICE_ROOT_DOMAIN;
 
         const domainRegExp = new RegExp(request.seocromom.currentDomain, "mg");
-
+        const productionHeader = request.headers['cookie']
+        await utils.writeToLog(JSON.stringify(productionHeader));
         let appCookiesModel = false;
         if (! utils.isStaticRes(request.url)) {
             appCookiesModel = await AppCookiesListModel.findOne({name: servicesDetails.crunchbase.name}).exec();
@@ -111,6 +112,7 @@ module.exports = async function (request, reply) {
             const allCookies = cookiesManager.getAsString(targetedHost);
             if (allCookies.length > 0) {
                 allowedRequestHeaders["cookie"] = allCookies;
+                
             } else {
                 allowedRequestHeaders["cookie"] =
                     handlerHelpers.getClientSideCookies(request.headers['cookie'], SERVICE_MAIN_DOMAIN);
