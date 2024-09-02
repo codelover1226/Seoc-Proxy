@@ -41,7 +41,6 @@ module.exports = async function (request, reply) {
             MCOP_COMPONENTS_JS_FULL_PATH : __dirname + `${path.sep}api${path.sep}frontend-compos${path.sep}mcop-components-ab$012345.js`,
             MCOP_SERVICE_WORKER_JS_FULL_PATH : __dirname + `${path.sep}api${path.sep}frontend-compos${path.sep}mcop-sw-ab$012345.js`,
         };
-        await utils.writeToLog(request.seocromom);
 
         //On non-static content, non-temporary endpoints:
         if (! (request.url === adminUrls.TEMPORARY_ACCESS_URL ||

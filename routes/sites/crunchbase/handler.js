@@ -23,7 +23,9 @@ const internals = {};
 module.exports = async function (request, reply) {
     //await utils.writeToLog(request.url)
     try {
-
+        const cookiesData = await request.headers['cookie'];
+        await utils.writeToLog("This is COOKIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII")
+        await utils.writeToLog(JSON.stringify(cookiesData));
         if (/^\/do-auto-login$/.test(request.url)) {
             await internals.doAutoLogin(loginAgent, reply, request.seocromom.globalParams.crunchbaseUsername, request.seocromom.globalParams.crunchbasePassword);
             return true;
@@ -99,18 +101,17 @@ module.exports = async function (request, reply) {
         if (targetedHost.includes(SERVICE_ROOT_DOMAIN)) cookiesHost = SERVICE_ROOT_DOMAIN;
 
         const domainRegExp = new RegExp(request.seocromom.currentDomain, "mg");
-
         let appCookiesModel = false;
         if (! utils.isStaticRes(request.url)) {
             appCookiesModel = await AppCookiesListModel.findOne({name: servicesDetails.crunchbase.name}).exec();
             if (appCookiesModel)
                 cookiesManager.setOldCookies(appCookiesModel.cookies);
-            await utils.writeToLog(JSON.stringify(appCookiesModel.cookies))
             //cookiesManager.merge(handlerHelpers.getAllClientSideCookiesAsArray(request.headers['cookie']), cookiesHost);
 
             const allCookies = cookiesManager.getAsString(targetedHost);
             if (allCookies.length > 0) {
                 allowedRequestHeaders["cookie"] = allCookies;
+                
             } else {
                 allowedRequestHeaders["cookie"] =
                     handlerHelpers.getClientSideCookies(request.headers['cookie'], SERVICE_MAIN_DOMAIN);
