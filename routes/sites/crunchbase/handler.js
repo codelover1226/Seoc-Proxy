@@ -116,8 +116,6 @@ module.exports = async function (request, reply) {
         }
 
         let requestData = '';
-        const originalAction = '/logout"';
-        const newAction = '/"';
         if (/post|put|patch/i.test(request.method)) {
             requestData = request.seocromom['requestBody'];
 
@@ -125,7 +123,6 @@ module.exports = async function (request, reply) {
                 const encodedDomainRegExp = new RegExp(querystring.escape(request.seocromom.currentDomain), "mg");
                 const mcoppRegExp = new RegExp(querystring.escape('__mcopp="1"'), "mg");
                 
-                requestData = requestData.replace(new RegExp(originalAction, 'i'), newAction);
                 requestData = requestData.replace(domainRegExp, targetedHost).replace(new RegExp(handlerHelpers.MCOP_LOCATION_STR, 'mg'), "location");
                 requestData = requestData.replace(domainRegExp, targetedHost);
                 requestData = requestData.replace(encodedDomainRegExp, targetedHost);
