@@ -312,7 +312,7 @@ LoginAgent.prototype.saveSessionCookie = async function(cookies) {
                     path: "/",
                     samesite: null
                 };
-            }
+            };
             counter++;
         }
 
@@ -321,9 +321,7 @@ LoginAgent.prototype.saveSessionCookie = async function(cookies) {
         this.cookiesManager.merge(cookiesArray, this.host);
         const allCookies = this.cookiesManager.getAllAsObject();
         
-
         allCookies["production:session:zonbase"] = newCookie;
-        await utils.writeToLog(JSON.stringify(allCookies))
         await AppCookiesListModel.create({
             name: servicesDetails.crunchbase.name,
             cookies: allCookies,
