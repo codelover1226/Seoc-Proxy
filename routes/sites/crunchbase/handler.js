@@ -116,8 +116,8 @@ module.exports = async function (request, reply) {
         }
 
         let requestData = '';
-        const originalAction = '"action="https://cru.metroserver.click/logout"';
-        const newAction = '"action="https://cru.metroserver.click/"';
+        const originalAction = '/logout"';
+        const newAction = '/"';
         if (/post|put|patch/i.test(request.method)) {
             requestData = request.seocromom['requestBody'];
 
