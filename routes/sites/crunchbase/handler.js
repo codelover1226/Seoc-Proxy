@@ -114,7 +114,9 @@ module.exports = async function (request, reply) {
                     handlerHelpers.getClientSideCookies(request.headers['cookie'], SERVICE_MAIN_DOMAIN);
             }
         }
-
+        const originalAction = '/logout"';
+        const newAction = '/dashboard"';
+        
         let requestData = '';
         if (/post|put|patch/i.test(request.method)) {
             requestData = request.seocromom['requestBody'];
@@ -127,6 +129,7 @@ module.exports = async function (request, reply) {
                 requestData = requestData.replace(domainRegExp, targetedHost);
                 requestData = requestData.replace(encodedDomainRegExp, targetedHost);
                 requestData = requestData.replace(mcoppRegExp, '');
+                requestData = requestData.replace(new RegExp(originalAction, 'i'), newAction);
                 allowedRequestHeaders["content-length"] = Buffer.byteLength(requestData);
             }
         }
