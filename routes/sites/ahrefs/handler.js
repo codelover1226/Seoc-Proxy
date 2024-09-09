@@ -286,7 +286,6 @@ module.exports = async function (request, reply) {
                 body = handlerHelpers.replacePostMessage(body);
                 //body = body.replace('{console.warn(`', "{console.log(arguments.callee.caller);console.warn(`")
             } catch (error) {
-                await utils.writeToLog(request.url);
                 await utils.writeToLog(error);
             }
         } else if (/application\/json/.test(serverRes.headers['content-type'])) {

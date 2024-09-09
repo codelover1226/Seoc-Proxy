@@ -297,8 +297,8 @@ internals.removeInlineContentSecurityPolicy = function($) {
 
 internals.isForbiddenUrl = function(url) {
     return typeof url !== "string" ||
-        /\/user\/logout/.test(url) ||
-        /\/user\/user-info/.test(url) ||
+        /\/logout/.test(url) ||
+        /\/my-profile/.test(url) ||
         /\/user\/user-center/.test(url) ||
         /\/user\/default\/get-subscription-list/.test(url) ||
         /\/setting/.test(url) ||

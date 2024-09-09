@@ -222,3 +222,6 @@ pre.prettyprint {
 .footer, .push {
   height: 48px;
 }
+.common_upgrade_btn {
+  display: none;
+}
